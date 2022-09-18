@@ -1,0 +1,8 @@
+{
+  "name": "audiophile",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:sam-621/audiophile.git",
+  "author": "Rogelio Samuel Moreno Corrales <rogeliosamuel621@gmail.com>",
+  "license": "MIT"
+}
