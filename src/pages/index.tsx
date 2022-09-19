@@ -1,6 +1,5 @@
 import { Button } from '@/components/custom/Button/Button'
 import { Input } from '@/components/custom/Input/Input'
-import { TextInput } from '@/components/custom/Input/TextInput'
 
 export const Home = () => {
   return (
