@@ -13,7 +13,8 @@ module.exports = {
         cards: '#F1F1F1',
         viewport: '#FAFAFA',
         'primary-light': '#FBAF85',
-        subtitle: '#808080'
+        subtitle: '#808080',
+        error: '#CD2C2C'
       },
       fontFamily: {
         manrope: ['Manrope', 'sans-serif']

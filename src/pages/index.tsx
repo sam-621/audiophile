@@ -1,4 +1,6 @@
 import { Button } from '@/components/custom/Button/Button'
+import { Input } from '@/components/custom/Input/Input'
+import { TextInput } from '@/components/custom/Input/TextInput'
 
 export const Home = () => {
   return (
@@ -12,6 +14,25 @@ export const Home = () => {
         <Button variant="base" text="See Product" link={{ href: '/' }} />
         <Button variant="outlined" text="See Product" link={{ href: '/' }} />
         <Button variant="text" text="See Product" link={{ href: '/' }} />
+      </div>
+      <div className="flex gap-5 mt-7">
+        <Input
+          variant="text"
+          type="text"
+          label="Name"
+          placeholder="Insert your name"
+          value="sam"
+          onChange={() => null}
+          error="hi"
+        />
+        <Input
+          variant="text"
+          type="text"
+          label="Name"
+          placeholder="Insert your name"
+          value="sam"
+          onChange={() => null}
+        />
       </div>
     </div>
   )
