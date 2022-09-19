@@ -12,9 +12,8 @@ module.exports = {
         secondary: '#101010',
         cards: '#F1F1F1',
         viewport: '#FAFAFA',
-        'primary-contrast': '#FBAF85',
-        'secondary-contrast': '#000000',
-        'cards-contrasts': '#FFFFFF'
+        'primary-light': '#FBAF85',
+        subtitle: '#808080'
       },
       fontFamily: {
         manrope: ['Manrope', 'sans-serif']

@@ -20,18 +20,18 @@
     "jsx": "preserve",
     "baseUrl": "src",
     "paths": {
-      "/@/modules/*": ["modules/*"],
-      "/@/components/*": ["common/components/*"],
-      "/@/layouts/*": ["common/components/layouts/*"],
-      "/@/constants/*": ["common/constants/*"],
-      "/@/contexts/*": ["common/contexts/*"],
-      "/@/utils/*": ["common/utils/*"],
-      "/@/hooks/*": ["common/hooks/*"],
-      "/@/interfaces/*": ["common/interfaces/*"],
-      "/@/services/*": ["common/services/*"],
-      "/@/apis/*": ["common/apis/*"],
-      "/@/state/*": ["common/state/*"],
-      "/@/libs/*": ["common/libs/*"]
+      "@/modules/*": ["modules/*"],
+      "@/components/*": ["common/components/*"],
+      "@/layouts/*": ["common/components/layouts/*"],
+      "@/constants/*": ["common/constants/*"],
+      "@/contexts/*": ["common/contexts/*"],
+      "@/utils/*": ["common/utils/*"],
+      "@/hooks/*": ["common/hooks/*"],
+      "@/interfaces/*": ["common/interfaces/*"],
+      "@/services/*": ["common/services/*"],
+      "@/apis/*": ["common/apis/*"],
+      "@/state/*": ["common/state/*"],
+      "@/libs/*": ["common/libs/*"]
     }
 
   },
