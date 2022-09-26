@@ -8,10 +8,15 @@ export interface IUser {
   email: string
   password: string
   phone: string
-  address: string
-  postal_code: string
-  city: string
-  country: string
+  address: TAddress
   shopping_history: IOrder[]
   cart: ICart[]
+}
+
+export type TAddress = {
+  street_1: string
+  street_2?: string
+  postal_code: string
+  city: string
+  country_code: string
 }
