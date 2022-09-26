@@ -7,7 +7,7 @@ import {
 } from '@/shared/interfaces/product.interface'
 import { model, Schema } from 'mongoose'
 
-const imageSchema = new Schema<TImage>({
+export const imageSchema = new Schema<TImage>({
   mobile: { type: String, required: true },
   tablet: { type: String, required: true },
   desktop: { type: String, required: true }

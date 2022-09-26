@@ -8,7 +8,12 @@ export interface IOrder {
   amount: number
   created_at: Date
   updated_at: Date
-  products: IProduct[]
+  products: TProductOrder[]
 }
 
 export type TOrderOwner = Pick<IUser, 'name' | 'email' | '_id'>
+
+export type TProductOrder = Pick<
+  IProduct,
+  '_id' | 'name' | 'slug' | 'price' | 'description' | 'image'
+>
