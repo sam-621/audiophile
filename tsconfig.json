@@ -28,7 +28,7 @@
       "@/components/*": ["frontend/common/components/*"],
 
       "---------- Back-end ----------": ["--------------------"],
-      
+      "@/models/*": ["api/models/*"]
     }
 
   },
