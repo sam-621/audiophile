@@ -10,7 +10,7 @@ export interface IUser {
   phone: string
   address: TAddress
   shopping_history: IOrder[]
-  cart: ICart[]
+  cart: ICart
 }
 
 export type TAddress = {

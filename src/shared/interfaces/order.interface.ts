@@ -11,7 +11,9 @@ export interface IOrder {
   products: TProductOrder[]
 }
 
-export type TOrderOwner = Pick<IUser, 'name' | 'email' | '_id'>
+export type TOrderOwner = Pick<IUser, 'name' | 'email'> & {
+  ownerId: TMongoId
+}
 
 export type TProductOrder = Pick<
   IProduct,

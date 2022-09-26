@@ -3,7 +3,7 @@ import { model, Schema } from 'mongoose'
 import { imageSchema } from './product.model'
 
 const orderOwnerSchema = new Schema<TOrderOwner>({
-  _id: { type: 'ObjectId', required: true },
+  ownerId: { type: 'ObjectId', required: true },
   name: { type: String, require: true },
   email: { type: String, require: true }
 })

@@ -13,7 +13,7 @@ export const imageSchema = new Schema<TImage>({
   desktop: { type: String, required: true }
 })
 
-const includesSchema = new Schema<TIncludes>({
+export const includesSchema = new Schema<TIncludes>({
   quantity: { type: Number, required: true },
   item: { type: String, required: true }
 })
