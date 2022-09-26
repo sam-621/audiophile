@@ -21,7 +21,7 @@
     "baseUrl": "src",
     "paths": {
       "---------- Shared ----------": ["--------------------"],
-      "@/shared/*": ["/shared/*"],
+      "@/shared/*": ["shared/*"],
 
       "---------- Front-end ----------": ["--------------------"],
       "@/modules/*": ["frontend/modules/*"],

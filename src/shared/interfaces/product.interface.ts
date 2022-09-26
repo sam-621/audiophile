@@ -5,7 +5,7 @@ export interface IProduct {
   slug: string
   name: string
   image: TImage
-  category: TCategories
+  category: TCategory
   categoryImage: TImage
   new: boolean
   price: number
@@ -16,7 +16,7 @@ export interface IProduct {
   others: TOthers[]
 }
 
-export type TCategories = 'earphones' | 'headphones' | 'speakers'
+export type TCategory = 'earphones' | 'headphones' | 'speakers'
 
 export type TImage = {
   mobile: string
