@@ -1,8 +1,19 @@
 import { ICart, TCartProduct } from '@/shared/interfaces/cart.interface'
+import { TImage, TIncludes } from '@/shared/interfaces/product.interface'
 import { IUser, TAddress } from '@/shared/interfaces/user.interface'
 import { model, Schema } from 'mongoose'
 import { orderSchema } from './order.model'
-import { imageSchema, includesSchema } from './product.model'
+
+export const imageSchema = new Schema<TImage>({
+  mobile: { type: String, required: true },
+  tablet: { type: String, required: true },
+  desktop: { type: String, required: true }
+})
+
+export const includesSchema = new Schema<TIncludes>({
+  quantity: { type: Number, required: true },
+  item: { type: String, required: true }
+})
 
 const cartProductSchema = new Schema<TCartProduct>({
   name: {
@@ -92,7 +103,7 @@ const userSchema = new Schema<IUser>({
   },
   phone: {
     type: String,
-    required: true
+    required: false
   },
   address: {
     type: addressSchema,

@@ -1,11 +1,17 @@
 import { IOrder, TOrderOwner, TProductOrder } from '@/shared/interfaces/order.interface'
+import { TImage } from '@/shared/interfaces/product.interface'
 import { model, Schema } from 'mongoose'
-import { imageSchema } from './product.model'
 
 const orderOwnerSchema = new Schema<TOrderOwner>({
   ownerId: { type: 'ObjectId', required: true },
   name: { type: String, require: true },
   email: { type: String, require: true }
+})
+
+export const imageSchema = new Schema<TImage>({
+  mobile: { type: String, required: true },
+  tablet: { type: String, required: true },
+  desktop: { type: String, required: true }
 })
 
 const productSchema = new Schema<TProductOrder>({

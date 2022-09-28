@@ -24,11 +24,14 @@
       "@/shared/*": ["shared/*"],
 
       "---------- Front-end ----------": ["--------------------"],
-      "@/modules/*": ["frontend/modules/*"],
-      "@/components/*": ["frontend/common/components/*"],
+      "@/front-modules/*": ["frontend/modules/*"],
+      "@/front-components/*": ["frontend/common/components/*"],
 
       "---------- Back-end ----------": ["--------------------"],
-      "@/models/*": ["api/models/*"]
+      "@/api-models/*": ["api/models/*"],
+      "@/api-services/*": ["api/services/*"],
+      "@/api-middlewares/*": ["api/middlewares/*"],
+      "@/api-db/*": ["api/db/*"]
     }
 
   },

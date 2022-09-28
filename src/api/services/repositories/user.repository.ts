@@ -1,10 +1,14 @@
-import { UserModel } from '@/models/user.model'
+import { connectDB } from '@/api-db/connection'
+import { UserModel } from '@/api-models/user.model'
 import { TMongoId } from '@/shared/interfaces/utils'
 
 export class UserRepository {
-  static async getById(id: TMongoId) {
+  async getById(id: TMongoId | string) {
     try {
       const user = await UserModel.findById(id)
+      console.log({
+        user
+      })
 
       return user
     } catch (error) {
@@ -12,7 +16,7 @@ export class UserRepository {
     }
   }
 
-  static async getByEmail(email: string) {
+  async getByEmail(email: string) {
     try {
       const user = await UserModel.findOne({ email: email })
 
