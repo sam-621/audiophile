@@ -1,5 +1,5 @@
-import { Button } from '@/components/custom/Button/Button'
-import { Input } from '@/components/custom/Input/Input'
+import { Button } from '@/front-components/custom/Button/Button'
+import { Input } from '@/front-components/custom/Input/Input'
 
 export const Components = () => {
   return (
