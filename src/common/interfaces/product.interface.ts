@@ -1,7 +1,5 @@
-import { TMongoId } from './utils'
-
 export interface IProduct {
-  _id: TMongoId
+  _id: string
   slug: string
   name: string
   image: TImage

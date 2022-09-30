@@ -1,6 +1,6 @@
 import type { AppProps } from 'next/app'
 
-import '../frontend/styles/globals.css'
+import '../styles/globals.css'
 import 'tailwindcss/tailwind.css'
 
 export default function MyApp({ Component, pageProps }: AppProps) {

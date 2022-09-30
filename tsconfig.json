@@ -20,18 +20,9 @@
     "jsx": "preserve",
     "baseUrl": "src",
     "paths": {
-      "---------- Shared ----------": ["--------------------"],
-      "@/shared/*": ["shared/*"],
-
-      "---------- Front-end ----------": ["--------------------"],
-      "@/front-modules/*": ["frontend/modules/*"],
-      "@/front-components/*": ["frontend/common/components/*"],
-
-      "---------- Back-end ----------": ["--------------------"],
-      "@/api-models/*": ["api/models/*"],
-      "@/api-services/*": ["api/services/*"],
-      "@/api-middlewares/*": ["api/middlewares/*"],
-      "@/api-db/*": ["api/db/*"]
+      "@/modules/*": ["modules/*"],
+      "@/components/*": ["common/components/*"],
+      "@/interfaces/*": ["common/interfaces/*"],
     }
 
   },

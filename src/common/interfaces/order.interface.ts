@@ -1,9 +1,8 @@
 import { IProduct } from './product.interface'
 import { IUser } from './user.interface'
-import { TMongoId } from './utils'
 
 export interface IOrder {
-  _id: TMongoId
+  _id: string
   owner: TOrderOwner
   amount: number
   created_at: Date
@@ -12,7 +11,7 @@ export interface IOrder {
 }
 
 export type TOrderOwner = Pick<IUser, 'name' | 'email'> & {
-  ownerId: TMongoId
+  ownerId: string
 }
 
 export type TProductOrder = Pick<
