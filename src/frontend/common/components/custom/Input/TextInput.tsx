@@ -15,11 +15,13 @@ export const TextInput: FC<Props> = ({
         <label htmlFor="html" className={`text-black text-xs font-bold ${error && 'text-error'}`}>
           {label}
         </label>
-        {error && <span className="text-error border-error text-xs">{error}</span>}
+        {error && <span className="text-error text-xs">{error}</span>}
       </div>
       <input
-        className={`caret-primary outline-none rounded-lg border border-[#C4C4C4] focus:border-primary px-6 py-4 text-black text-sm transition ${
-          error && 'border-2 border-error focus:border-error caret-error'
+        className={`caret-primary outline-none rounded-lg border-2 ${
+          !error && 'border-[#C4C4C4]'
+        } focus:border-primary px-6 py-4 text-black text-sm transition ${
+          error && 'border-error focus:border-error caret-error'
         } ${className}`}
         type={type}
         value={value}
