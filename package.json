@@ -18,6 +18,10 @@
     "build-storybook": "build-storybook"
   },
   "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "jsonwebtoken": "^8.5.1",
+    "mongodb": "^4.10.0",
+    "mongoose": "^6.6.2",
     "next": "^12.3.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
