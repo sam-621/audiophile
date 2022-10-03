@@ -28,10 +28,10 @@
       "@/front-components/*": ["frontend/common/components/*"],
 
       "---------- Back-end ----------": ["--------------------"],
-      "@/api-models/*": ["api/models/*"],
+      "@/api-db/*": ["api/db/*"],
+      "@/api-interfaces/*": ["api/interfaces/*"],
+      "@/api-repositories/*": ["api/repositories/*"],
       "@/api-services/*": ["api/services/*"],
-      "@/api-middlewares/*": ["api/middlewares/*"],
-      "@/api-db/*": ["api/db/*"]
     }
 
   },

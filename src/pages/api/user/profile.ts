@@ -1,17 +1,11 @@
-// import clientPromise from '@/api-db/connection'
-// import { UserRepository } from '@/api-services/repositories/user.repository'
-import { getConnection } from '@/api-db/connection'
+import { UserService } from '@/api-services/user.service'
+import { TMongoId } from '@/shared/interfaces/utils'
 import { NextApiRequest, NextApiResponse } from 'next'
 
 const handler = async (req: NextApiRequest, res: NextApiResponse) => {
-  const connection = await getConnection()
-  const db = connection.db('audiophile')
-  const users = await db.collection('users').find({}).toArray()
-  console.log({
-    users
-  })
+  const id = req.headers.id as unknown as TMongoId
 
-  console.log('hi')
+  const users = await UserService.getProfile(id)
   res.status(200).json(users)
 }
 
