@@ -7,5 +7,5 @@ export interface ICart {
 
 export type TCartProduct = Pick<
   IProduct,
-  '_id' | 'slug' | 'image' | 'category' | 'description' | 'includes' | 'name' | 'price' | 'features'
+  'slug' | 'image' | 'category' | 'description' | 'includes' | 'name' | 'price' | 'features'
 >
