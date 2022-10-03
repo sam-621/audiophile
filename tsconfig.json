@@ -32,6 +32,7 @@
       "@/api-interfaces/*": ["api/interfaces/*"],
       "@/api-repositories/*": ["api/repositories/*"],
       "@/api-services/*": ["api/services/*"],
+      "@/api-constants/*": ["api/constants/*"],
     }
 
   },
