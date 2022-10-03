@@ -3,7 +3,7 @@ import { TMongoId } from '@/shared/interfaces/utils'
 import { TCollection, TRepositoryResult } from 'api/interfaces/utils.interface'
 import { Document, Filter, WithId } from 'mongodb'
 
-export class Repository<T = Document> {
+export class Repository {
   collection: TCollection
 
   constructor(collectionName: TCollection) {
@@ -18,21 +18,21 @@ export class Repository<T = Document> {
     return collection
   }
 
-  protected async findOneById(id: TMongoId): Promise<TRepositoryResult<T>> {
+  protected async findOneById<T = Document>(id: TMongoId): Promise<TRepositoryResult<T>> {
     const collection = await this.getDbCollection()
     const result = collection.findOne({ _id: id })
 
     return result as unknown as WithId<T>
   }
 
-  protected async findOneByFilter(filter: Filter<T>): Promise<TRepositoryResult<T>> {
+  protected async findOneByFilter<T = Document>(filter: Filter<T>): Promise<TRepositoryResult<T>> {
     const collection = await this.getDbCollection()
     const result = collection.findOne(filter)
 
     return result as unknown as WithId<T>
   }
 
-  protected async find(): Promise<TRepositoryResult<T>> {
+  protected async find<T = Document>(): Promise<TRepositoryResult<T>> {
     const collection = await this.getDbCollection()
     const result = collection.find()
 
