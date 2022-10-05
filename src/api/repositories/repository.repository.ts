@@ -1,7 +1,7 @@
 import { getConnection } from '@/api-db/connection'
 import { TCollection, TRepositoryResult } from '@/api-interfaces/utils.interface'
 import { TMongoId } from '@/shared/interfaces/utils'
-import { Document, Filter, ObjectId, WithId } from 'mongodb'
+import { Document, Filter, InsertOneResult, ModifyResult, ObjectId, WithId } from 'mongodb'
 
 export class Repository {
   collection: TCollection
@@ -42,13 +42,13 @@ export class Repository {
     return result as unknown as WithId<T>
   }
 
-  async insert(input: Document) {
+  async insert(input: Document): Promise<InsertOneResult<Document>> {
     const collection = await this.getDbCollection()
-    collection.insertOne(input)
+    return collection.insertOne(input)
   }
 
-  async update(id: TMongoId, input: Document) {
+  async update(id: TMongoId, input: Document): Promise<ModifyResult<Document>> {
     const collection = await this.getDbCollection()
-    collection.findOneAndUpdate(id, input)
+    return collection.findOneAndUpdate(id, input)
   }
 }
