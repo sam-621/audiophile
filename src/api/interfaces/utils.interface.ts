@@ -15,3 +15,5 @@ export class ServiceResponse<T> {
     this.status = status
   }
 }
+
+export type THttpMethod = 'GET' | 'POST' | 'PUT' | 'DELETE'
