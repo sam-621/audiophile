@@ -5,8 +5,8 @@ export interface IUser {
   name: string
   email: string
   password: string
-  phone?: string
-  address?: TAddress
+  phone: string | null
+  address: TAddress | null
   shopping_history: IOrder[]
   cart: ICart
 }
