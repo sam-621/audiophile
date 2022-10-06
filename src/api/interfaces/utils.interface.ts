@@ -2,9 +2,9 @@ import { WithId } from 'mongodb'
 
 export type TCollection = 'users' | 'products'
 
-export type TRepositoryResult<T> = WithId<T>
+export type TRepositoryResponse<T> = WithId<T>
 
-export class ServiceResult<T> {
+export class ServiceResponse<T> {
   data: T
   message: string
   status: number

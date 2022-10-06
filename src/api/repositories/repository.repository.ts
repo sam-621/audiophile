@@ -1,5 +1,5 @@
 import { getConnection } from '@/api-db/connection'
-import { TCollection, TRepositoryResult } from '@/api-interfaces/utils.interface'
+import { TCollection, TRepositoryResponse } from '@/api-interfaces/utils.interface'
 import { TMongoId } from '@/shared/interfaces/utils'
 import { Document, Filter, InsertOneResult, ModifyResult, ObjectId, WithId } from 'mongodb'
 
@@ -18,7 +18,7 @@ export class Repository {
     return collection
   }
 
-  async findOneById<T = Document>(id: TMongoId): Promise<TRepositoryResult<T>> {
+  async findOneById<T = Document>(id: TMongoId): Promise<TRepositoryResponse<T>> {
     const collection = await this.getDbCollection()
     const result = await collection.findOne({ _id: new ObjectId(id) })
     console.log({
@@ -28,14 +28,14 @@ export class Repository {
     return result as unknown as WithId<T>
   }
 
-  async findOneByFilter<T = Document>(filter: Filter<T>): Promise<TRepositoryResult<T>> {
+  async findOneByFilter<T = Document>(filter: Filter<T>): Promise<TRepositoryResponse<T>> {
     const collection = await this.getDbCollection()
     const result = await collection.findOne(filter)
 
     return result as unknown as WithId<T>
   }
 
-  async find<T = Document>(): Promise<TRepositoryResult<T>> {
+  async find<T = Document>(): Promise<TRepositoryResponse<T>> {
     const collection = await this.getDbCollection()
     const result = await collection.find().toArray()
 
