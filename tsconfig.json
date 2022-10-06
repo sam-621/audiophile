@@ -33,6 +33,8 @@
       "@/api-repositories/*": ["api/repositories/*"],
       "@/api-services/*": ["api/services/*"],
       "@/api-constants/*": ["api/constants/*"],
+      "@/api-validations/*": ["api/validations/*"],
+      "@/api-utils/*": ["api/utils/*"],
     }
 
   },
