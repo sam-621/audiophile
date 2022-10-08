@@ -1,6 +1,6 @@
-import { StatusCodes } from '@/api-constants/status-codes'
+import { HttpStatusCodes } from '@/api-constants/status-codes'
 import { IPayload } from '@/api-interfaces/auth.interfaces'
-import { TSignUpDto, TSignUpInput } from '@/api-interfaces/user.interfaces'
+import { TSignInDto, TSignUpDto, TSignUpInput } from '@/api-interfaces/user.interfaces'
 import { ServiceResponse } from '@/api-interfaces/utils.interface'
 import { UserRepository } from '@/api-repositories/user.repository'
 import { IUser } from '@/shared/interfaces/user.interface'
@@ -18,7 +18,7 @@ export class AuthService {
         return new ServiceResponse(
           null,
           'user with that email already exists',
-          StatusCodes.BAD_REQUEST
+          HttpStatusCodes.BAD_REQUEST
         )
       }
 
@@ -39,11 +39,46 @@ export class AuthService {
 
       const token = SecurityService.createJWT(payload)
 
-      return new ServiceResponse(token, 'OK', StatusCodes.OK)
+      return new ServiceResponse(token, 'OK', HttpStatusCodes.OK)
     } catch (error) {
       console.log(error)
 
-      return new ServiceResponse(null, 'Error', StatusCodes.INTERNAL_SERVER_ERROR)
+      return new ServiceResponse(null, 'Error', HttpStatusCodes.INTERNAL_SERVER_ERROR)
+    }
+  }
+
+  static async signIn(user: TSignInDto): Promise<ServiceResponse<string | null>> {
+    const userRepository = new UserRepository()
+    try {
+      const userInDb = await userRepository.findOneByFilter<IUser>({ email: user.email })
+
+      if (!userInDb) {
+        return new ServiceResponse(null, 'Wrong Credentials', HttpStatusCodes.UNAUTHORIZED)
+      }
+
+      const passwordsMatch = await SecurityService.comparePasswords(
+        user.password,
+        userInDb.password
+      )
+
+      if (!passwordsMatch) {
+        return new ServiceResponse(null, 'Wrong Credentials', HttpStatusCodes.UNAUTHORIZED)
+      }
+
+      const payload: IPayload = {
+        id: userInDb._id
+      }
+
+      const token = SecurityService.createJWT(payload)
+
+      return new ServiceResponse(token, 'OK', HttpStatusCodes.OK)
+    } catch (error) {
+      console.log(error)
+      return new ServiceResponse(
+        null,
+        'Internal Server Error',
+        HttpStatusCodes.INTERNAL_SERVER_ERROR
+      )
     }
   }
 }
