@@ -2,7 +2,8 @@ import { ICart } from './cart.interface'
 import { IOrder } from './order.interface'
 
 export interface IUser {
-  name: string
+  firstName: string
+  lastName: string
   email: string
   password: string
   phone: string | null

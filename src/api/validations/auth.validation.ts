@@ -2,8 +2,9 @@ import { TSignUpDto } from '@/api-interfaces/user.interfaces'
 import Joi from 'joi'
 
 export const signUpValidator = (input: TSignUpDto): string[] | undefined => {
-  const schema = Joi.object({
-    name: Joi.string().alphanum().min(3).max(30).required(),
+  const schema = Joi.object<TSignUpDto>({
+    firstName: Joi.string().alphanum().min(3).max(30).required(),
+    lastName: Joi.string().alphanum().min(3).max(30).required(),
     email: Joi.string().email({ minDomainSegments: 2, tlds: { allow: ['com', 'net'] } }),
     password: Joi.string().min(6)
   })

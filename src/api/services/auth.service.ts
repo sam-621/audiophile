@@ -27,7 +27,8 @@ export class AuthService {
       const userToSave: TSignUpInput = {
         email: user.email,
         password: hashedPassword || '',
-        name: user.name
+        firstName: user.firstName,
+        lastName: user.lastName
       }
 
       const userSavedId = await userRepository.save(userToSave)
