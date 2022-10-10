@@ -21,9 +21,6 @@ export class Repository {
   async findOneById<T = Document>(id: TMongoId): Promise<TRepositoryResponse<T>> {
     const collection = await this.getDbCollection()
     const result = await collection.findOne({ _id: new ObjectId(id) })
-    console.log({
-      result
-    })
 
     return result as unknown as WithId<T>
   }

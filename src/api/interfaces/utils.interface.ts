@@ -1,8 +1,17 @@
+import { HttpStatusCodes } from '@/api-constants/status-codes'
 import { WithId } from 'mongodb'
+import { NextApiResponse } from 'next'
 
 export type TCollection = 'users' | 'products'
 
 export type TRepositoryResponse<T> = WithId<T>
+
+export type THttpMethod = 'GET' | 'POST' | 'PUT' | 'DELETE'
+
+export type TBodyResponse = {
+  message: string
+  data: unknown
+}
 
 export class ServiceResponse<T> {
   data: T
@@ -16,18 +25,27 @@ export class ServiceResponse<T> {
   }
 }
 
-export class GuardResponse<T = unknown> {
-  data?: T
-  success: boolean
+export class HandlerResponse<T> {
+  data: T
   message: string
-  status: number
+  status: HttpStatusCodes
+  res: NextApiResponse
 
-  constructor(success: boolean, message: string, status: number, data?: T) {
-    this.success = success
+  constructor(
+    data: T,
+    message: string,
+    status: HttpStatusCodes,
+    res: NextApiResponse<TBodyResponse>
+  ) {
+    this.data = data
     this.message = message
     this.status = status
-    this.data = data
+    this.res = res
+
+    this.sendRes()
+  }
+
+  private async sendRes(): Promise<void> {
+    return this.res.status(this.status).json({ message: this.message, data: this.data })
   }
 }
-
-export type THttpMethod = 'GET' | 'POST' | 'PUT' | 'DELETE'
