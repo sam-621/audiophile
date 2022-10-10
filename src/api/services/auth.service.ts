@@ -1,5 +1,5 @@
 import { HttpStatusCodes } from '@/api-constants/status-codes'
-import { IPayload } from '@/api-interfaces/auth.interfaces'
+import { IPayloadInput } from '@/api-interfaces/auth.interfaces'
 import { TSignInDto, TSignUpDto, TSignUpInput } from '@/api-interfaces/user.interfaces'
 import { ServiceResponse } from '@/api-interfaces/utils.interface'
 import { UserRepository } from '@/api-repositories/user.repository'
@@ -33,7 +33,7 @@ export class AuthService {
 
       const userSavedId = await userRepository.save(userToSave)
 
-      const payload: IPayload = {
+      const payload: IPayloadInput = {
         id: userSavedId
       }
 
@@ -65,7 +65,7 @@ export class AuthService {
         return new ServiceResponse(null, 'Wrong Credentials', HttpStatusCodes.UNAUTHORIZED)
       }
 
-      const payload: IPayload = {
+      const payload: IPayloadInput = {
         id: userInDb._id
       }
 

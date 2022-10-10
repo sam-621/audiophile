@@ -1,5 +1,5 @@
 import { SALT } from '@/api-constants/index.constants'
-import { IPayload } from '@/api-interfaces/auth.interfaces'
+import { IPayloadInput, TJwtPayloadResponse } from '@/api-interfaces/auth.interfaces'
 import bcrypt from 'bcryptjs'
 import jwt from 'jsonwebtoken'
 
@@ -24,7 +24,7 @@ export class SecurityService {
     }
   }
 
-  static createJWT(payload: IPayload): string {
+  static createJWT(payload: IPayloadInput): string {
     try {
       return jwt.sign(payload, 'JWT_SECRET', { expiresIn: '3d' })
     } catch (error) {
@@ -34,12 +34,13 @@ export class SecurityService {
     }
   }
 
-  static async verifyJWT(token: string) {
+  static verifyJWT(token: string): TJwtPayloadResponse | null {
     try {
-      return jwt.verify(token, 'JWT_SECRET')
+      return jwt.verify(token, 'JWT_SECRET') as unknown as TJwtPayloadResponse
     } catch (error) {
       // getErrorMessage(error)
       console.log(error)
+      return null
     }
   }
 }

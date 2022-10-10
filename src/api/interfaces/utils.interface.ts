@@ -16,4 +16,18 @@ export class ServiceResponse<T> {
   }
 }
 
+export class GuardResponse<T = unknown> {
+  data?: T
+  success: boolean
+  message: string
+  status: number
+
+  constructor(success: boolean, message: string, status: number, data?: T) {
+    this.success = success
+    this.message = message
+    this.status = status
+    this.data = data
+  }
+}
+
 export type THttpMethod = 'GET' | 'POST' | 'PUT' | 'DELETE'

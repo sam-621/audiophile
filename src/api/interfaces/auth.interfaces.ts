@@ -1,5 +1,10 @@
 import { TMongoId } from '@/shared/interfaces/utils'
 
-export interface IPayload {
+export interface IPayloadInput {
   id: TMongoId
+}
+
+export type TJwtPayloadResponse = IPayloadInput & {
+  iat: number
+  exp: number
 }
