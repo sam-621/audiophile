@@ -7,8 +7,8 @@ import { NextApiRequest, NextApiResponse } from 'next'
 const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   const id = (await JwtGuard(req, res)) as TMongoId
 
-  const user = await UserService.getProfile(id)
-  return new HandlerResponse(user.data, user.message, user.status, res)
+  const { data, message, status } = await UserService.getProfile(id)
+  return new HandlerResponse(data, message, status, res)
 }
 
 export default handler

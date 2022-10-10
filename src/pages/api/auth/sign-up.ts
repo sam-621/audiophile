@@ -1,4 +1,5 @@
 import { HttpStatusCodes } from '@/api-constants/status-codes'
+import { HandlerResponse } from '@/api-interfaces/utils.interface'
 import { AuthService } from '@/api-services/auth.service'
 import { is404Endpoint } from '@/api-utils/request'
 import { signUpValidator } from '@/api-validations/auth.validation'
@@ -15,8 +16,8 @@ const signUpHandler = async (req: NextApiRequest, res: NextApiResponse) => {
     return res.status(HttpStatusCodes.BAD_REQUEST).json({ message: errors })
   }
 
-  const token = await AuthService.signUp(req.body)
-  res.status(HttpStatusCodes.OK).json(token)
+  const { data, message, status } = await AuthService.signUp(req.body)
+  return new HandlerResponse(data, message, status, res)
 }
 
 export default signUpHandler
