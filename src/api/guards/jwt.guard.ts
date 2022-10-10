@@ -1,5 +1,4 @@
 import { HttpStatusCodes } from '@/api-constants/status-codes'
-import { GuardResponse } from '@/api-interfaces/utils.interface'
 import { UserRepository } from '@/api-repositories/user.repository'
 import { SecurityService } from '@/api-services/security.service'
 import { IUser } from '@/shared/interfaces/user.interface'
@@ -9,18 +8,18 @@ import { NextApiRequest, NextApiResponse } from 'next'
 export const JwtGuard = async (
   req: NextApiRequest,
   res: NextApiResponse
-): Promise<GuardResponse<TMongoId>> => {
+): Promise<TMongoId | void> => {
   const token = req.headers['authorization']
 
   if (!token) {
-    return new GuardResponse(false, 'No Token Provided', HttpStatusCodes.BAD_REQUEST)
+    return res.status(HttpStatusCodes.BAD_REQUEST).json({ message: 'No Token Provided' })
   }
 
   try {
     const decoded = SecurityService.verifyJWT(token)
 
     if (!decoded) {
-      return new GuardResponse(false, 'Invalid Token', HttpStatusCodes.UNAUTHORIZED)
+      return res.status(HttpStatusCodes.UNAUTHORIZED).json({ message: 'Invalid Token' })
     }
 
     const userRepository = new UserRepository()
@@ -28,13 +27,13 @@ export const JwtGuard = async (
     const user = await userRepository.findOneById<IUser>(decoded.id)
 
     if (!user) {
-      return new GuardResponse(false, 'Invalid Token', HttpStatusCodes.UNAUTHORIZED)
+      return res.status(HttpStatusCodes.UNAUTHORIZED).json({ message: 'Invalid Token' })
     }
 
-    return new GuardResponse(true, 'OK', HttpStatusCodes.OK, user._id)
+    return user._id
   } catch (error) {
     console.log(error)
 
-    return new GuardResponse(false, 'Error', HttpStatusCodes.INTERNAL_SERVER_ERROR)
+    return res.status(HttpStatusCodes.INTERNAL_SERVER_ERROR).json({ message: 'Error' })
   }
 }
