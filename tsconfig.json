@@ -35,6 +35,7 @@
       "@/api-constants/*": ["api/constants/*"],
       "@/api-validations/*": ["api/validations/*"],
       "@/api-utils/*": ["api/utils/*"],
+      "@/api-guards/*": ["api/guards/*"],
     }
 
   },
