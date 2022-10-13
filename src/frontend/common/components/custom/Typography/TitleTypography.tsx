@@ -2,7 +2,7 @@ import { TTypographyVariants } from '@/front-interfaces/components/typography.in
 import { getTypographySize, getTypographyWeight } from '@/front-utils/typography.util'
 import { FC, PropsWithChildren } from 'react'
 
-export const TitleTypography: FC<PropsWithChildren<Props>> = ({
+export const TitleTypography: FC<PropsWithChildren<TitleTypographyProps>> = ({
   variant,
   fontSize,
   fontWeight,
@@ -21,7 +21,7 @@ export const TitleTypography: FC<PropsWithChildren<Props>> = ({
   }
 }
 
-type Props = {
+export type TitleTypographyProps = {
   variant: TTypographyVariants
   fontSize: number
   fontWeight: number

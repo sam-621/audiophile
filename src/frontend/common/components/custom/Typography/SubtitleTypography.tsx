@@ -1,7 +1,7 @@
 import { getTypographySize, getTypographyWeight } from '@/front-utils/typography.util'
 import { FC, PropsWithChildren } from 'react'
 
-export const SubtitleTypography: FC<PropsWithChildren<Props>> = ({
+export const SubtitleTypography: FC<PropsWithChildren<SubtitleTypographyProps>> = ({
   variant,
   fontSize,
   fontWeight,
@@ -18,7 +18,7 @@ export const SubtitleTypography: FC<PropsWithChildren<Props>> = ({
   }
 }
 
-type Props = {
+export type SubtitleTypographyProps = {
   variant: 'span' | 'p'
   fontSize: number
   fontWeight: number
