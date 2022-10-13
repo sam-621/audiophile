@@ -1,3 +1,4 @@
+import { TTypographyWeight } from '@/front-interfaces/components/typography.interface'
 import { THashMap } from '@/shared/interfaces/utils'
 
 export const TYPOGRAPHY_SIZE: THashMap = {
@@ -17,17 +18,18 @@ export const TYPOGRAPHY_SIZE: THashMap = {
 }
 
 export const TYPOGRAPHY_WEIGHT: THashMap = {
-  [100]: 'font-thin',
-  [200]: 'font-extralight',
-  [300]: 'font-light',
-  [400]: 'font-normal',
-  [500]: 'font-medium',
-  [600]: 'font-semibold',
-  [700]: 'font-bold',
-  [800]: 'font-extrabold',
-  [900]: 'font-black'
+  ['thin']: 'font-thin',
+  ['extralight']: 'font-extralight',
+  ['light']: 'font-light',
+  ['normal']: 'font-normal',
+  ['medium']: 'font-medium',
+  ['semibold']: 'font-semibold',
+  ['bold']: 'font-bold',
+  ['extrabold']: 'font-extrabold',
+  ['black']: 'font-black'
 }
 
 export const getTypographySize = (size: number) => TYPOGRAPHY_SIZE[size] || 'text-base'
 
-export const getTypographyWeight = (weight: number) => TYPOGRAPHY_WEIGHT[weight] || 'font-normal'
+export const getTypographyWeight = (weight: TTypographyWeight) =>
+  TYPOGRAPHY_WEIGHT[weight] || 'font-normal'
