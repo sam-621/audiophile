@@ -1,6 +1,5 @@
 import { Button } from '@/front-components/custom/Button/Button'
 import { Input } from '@/front-components/custom/Input/Input'
-import { Typography } from '@/front-components/custom/Typography/Typography'
 
 export const Components = () => {
   return (
@@ -33,27 +32,6 @@ export const Components = () => {
           value="sam"
           onChange={() => null}
         />
-      </div>
-      <div className="flex gap-5 mt-7">
-        <Typography variant="h1" fontSize={30} fontWeight="bold">
-          HEADPHONES
-        </Typography>
-        <Typography variant="h2" fontSize={30} fontWeight="bold">
-          XX99 Mark II Headphones
-        </Typography>
-        <Typography variant="h3" fontSize={14} fontWeight="bold">
-          HEADPHONES
-        </Typography>
-
-        <Typography variant="p" fontSize={14} fontWeight="bold">
-          Experience natural, lifelike audio and exceptional build quality made for the passionate
-          music enthusiast.
-        </Typography>
-
-        <Typography variant="span" fontSize={14} fontWeight="bold">
-          Experience natural, lifelike audio and exceptional build quality made for the passionate
-          music enthusiast.
-        </Typography>
       </div>
     </div>
   )
