@@ -26,6 +26,8 @@
       "---------- Front-end ----------": ["--------------------"],
       "@/front-modules/*": ["frontend/modules/*"],
       "@/front-components/*": ["frontend/common/components/*"],
+      "@/front-utils/*": ["frontend/common/utils/*"],
+      "@/front-interfaces/*": ["frontend/common/interfaces/*"],
 
       "---------- Back-end ----------": ["--------------------"],
       "@/api-db/*": ["api/db/*"],
