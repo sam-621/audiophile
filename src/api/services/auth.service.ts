@@ -4,6 +4,7 @@ import { TSignInDto, TSignUpDto, TSignUpInput } from '@/api-interfaces/user.inte
 import { ServiceResponse } from '@/api-interfaces/utils.interface'
 import { UserRepository } from '@/api-repositories/user.repository'
 import { IUser } from '@/shared/interfaces/user.interface'
+import { TEntityWithId } from '@/shared/interfaces/utils'
 import { SecurityService } from './security.service'
 
 export class AuthService {
@@ -47,7 +48,7 @@ export class AuthService {
     }
   }
 
-  static async signIn(user: TSignInDto): Promise<ServiceResponse<string | null>> {
+  static async signIn(user: TSignInDto): Promise<ServiceResponse<TEntityWithId<IUser> | null>> {
     const userRepository = new UserRepository()
     try {
       const userInDb = await userRepository.findOneByFilter<IUser>({ email: user.email })
@@ -65,13 +66,15 @@ export class AuthService {
         return new ServiceResponse(null, 'Wrong Credentials', HttpStatusCodes.UNAUTHORIZED)
       }
 
-      const payload: IPayloadInput = {
-        id: userInDb._id
-      }
+      return new ServiceResponse(userInDb, 'OK', HttpStatusCodes.OK)
 
-      const token = SecurityService.createJWT(payload)
+      // const payload: IPayloadInput = {
+      //   id: userInDb._id
+      // }
 
-      return new ServiceResponse(token, 'OK', HttpStatusCodes.OK)
+      // const token = SecurityService.createJWT(payload)
+
+      // return new ServiceResponse(token, 'OK', HttpStatusCodes.OK)
     } catch (error) {
       console.log(error)
       return new ServiceResponse(
