@@ -1,10 +1,7 @@
 import { HttpStatusCodes } from '@/api-constants/status-codes'
-import { WithId } from 'mongodb'
 import { NextApiResponse } from 'next'
 
 export type TCollection = 'users' | 'products'
-
-export type TRepositoryResponse<T> = WithId<T>
 
 export type THttpMethod = 'GET' | 'POST' | 'PUT' | 'DELETE'
 
