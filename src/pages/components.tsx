@@ -1,13 +1,14 @@
 import { Button } from '@/front-components/custom/Button/Button'
 import { Input } from '@/front-components/custom/Input/Input'
-import { useSession } from 'next-auth/react'
+import { useAuth } from 'frontend/common/hook/useAuth'
 
 export const Components = () => {
-  const { data, status } = useSession()
+  const { isAuth, isLoading, userId } = useAuth()
 
   console.log({
-    data,
-    status
+    isAuth,
+    isLoading,
+    userId
   })
 
   return (
