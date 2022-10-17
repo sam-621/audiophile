@@ -33,7 +33,7 @@ export const TextInput: FC<Props> = ({
 }
 
 type Props = {
-  type: 'text' | 'email'
+  type: 'text' | 'email' | 'password'
   label: string
   value: string
   error?: string

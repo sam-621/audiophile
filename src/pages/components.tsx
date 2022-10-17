@@ -1,7 +1,15 @@
 import { Button } from '@/front-components/custom/Button/Button'
 import { Input } from '@/front-components/custom/Input/Input'
+import { useSession } from 'next-auth/react'
 
 export const Components = () => {
+  const { data, status } = useSession()
+
+  console.log({
+    data,
+    status
+  })
+
   return (
     <div>
       <div className="flex gap-5 mb-5">

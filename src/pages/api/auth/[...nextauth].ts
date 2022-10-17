@@ -1,7 +1,7 @@
 import { TSignInDto } from '@/api-interfaces/user.interfaces'
 import { AuthService } from '@/api-services/auth.service'
-import { is404Endpoint } from '@/api-utils/request'
 import { signInValidator } from '@/api-validations/auth.validation'
+import { TMongoId } from '@/shared/interfaces/utils'
 import NextAuth, { NextAuthOptions } from 'next-auth'
 import CredentialsProvider from 'next-auth/providers/credentials'
 
@@ -12,36 +12,41 @@ export const authOptions: NextAuthOptions = {
         email: { label: 'Email', type: 'text' },
         password: { label: 'Password', type: 'password' }
       },
-      async authorize(credentials, req) {
-        if (is404Endpoint(req.method || '', 'POST')) {
-          return null
+      async authorize(credentials) {
+        const dto: TSignInDto = {
+          email: credentials?.email || '',
+          password: credentials?.password || ''
         }
-
-        const dto = credentials as unknown as TSignInDto
 
         const errors = signInValidator(dto)
 
-        if (Boolean(errors?.length)) {
-          return null
-        }
+        if (Boolean(errors?.length)) return null
 
         const { data } = await AuthService.signIn(dto)
+
+        if (!Boolean(data)) return null
+
         return {
-          ...data,
-          // eslint-disable-next-line @typescript-eslint/no-empty-function, @typescript-eslint/no-unused-vars
-          then(_onfulfilled?, _onrejected?) {}
+          id: data!
         }
       }
     })
   ],
   callbacks: {
-    jwt({ token, user }) {
-      token.id = user?._id!
+    jwt({ account, token, user }) {
+      if (account) {
+        token.id = user?.id as TMongoId
+      }
+
       return token
+    },
+    session({ session, token }) {
+      session.user.id = token.id
+      return session
     }
   },
   pages: {
-    signIn: '/auth/sign-in'
+    signIn: '/sign-in'
   }
 }
 

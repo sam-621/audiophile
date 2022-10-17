@@ -44,7 +44,7 @@ type Props = InputProps & {
 }
 
 export type InputProps = {
-  type: 'text' | 'email'
+  type: 'text' | 'email' | 'password'
   label: string
   value: string
   error?: string

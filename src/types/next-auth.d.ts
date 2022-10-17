@@ -1,13 +1,14 @@
 import { IPayloadInput } from '@/api-interfaces/auth.interfaces'
-import { IUser } from '@/shared/interfaces/user.interface'
-import { TEntityWithId, TMongoId } from '@/shared/interfaces/utils'
+import { TMongoId } from '@/shared/interfaces/utils'
 
 declare module 'next-auth' {
   interface Session {
-    user: TEntityWithId<IUser>
+    user: {
+      id: TMongoId
+    }
   }
-  interface User extends TEntityWithId<IUser> {
-    id: number
+  interface User {
+    id: TMongoId
   }
 }
 
