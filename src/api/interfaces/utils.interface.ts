@@ -48,6 +48,18 @@ export class HandlerResponse<T> {
   }
 }
 
+export class GuardResponse<T> {
+  data: T
+  message: string
+  status: HttpStatusCodes
+
+  constructor(data: T, message: string, status: HttpStatusCodes) {
+    this.data = data
+    this.message = message
+    this.status = status
+  }
+}
+
 // Next-auth package DO NOT MOVE
 export type UserCredentialsConfig<C extends Record<string, CredentialInput>> = Partial<
   Omit<CredentialsConfig<C>, 'options'>

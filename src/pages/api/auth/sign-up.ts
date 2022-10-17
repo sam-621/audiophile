@@ -6,7 +6,7 @@ import { signUpValidator } from '@/api-validations/auth.validation'
 import { NextApiRequest, NextApiResponse } from 'next'
 
 const signUpHandler = async (req: NextApiRequest, res: NextApiResponse) => {
-  if (is404Endpoint(req, 'POST')) {
+  if (is404Endpoint('POST', req.method)) {
     return res.status(HttpStatusCodes.NOT_FOUND).json({ message: 'NOT FOUND' })
   }
 
