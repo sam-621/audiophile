@@ -1,7 +1,5 @@
-import { JwtGuard } from '@/api-guards/jwt.guard'
 import { HandlerResponse } from '@/api-interfaces/utils.interface'
 import { UserService } from '@/api-services/user.service'
-import { TMongoId } from '@/shared/interfaces/utils'
 import { NextApiRequest, NextApiResponse } from 'next'
 import { unstable_getServerSession } from 'next-auth'
 import { authOptions } from '../auth/[...nextauth]'
