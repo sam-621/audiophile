@@ -28,6 +28,7 @@
       "@/front-components/*": ["frontend/common/components/*"],
       "@/front-utils/*": ["frontend/common/utils/*"],
       "@/front-interfaces/*": ["frontend/common/interfaces/*"],
+      "@/front-hooks/*": ["frontend/common/hooks/*"],
 
       "---------- Back-end ----------": ["--------------------"],
       "@/api-db/*": ["api/db/*"],

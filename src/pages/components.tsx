@@ -1,6 +1,6 @@
 import { Button } from '@/front-components/custom/Button/Button'
 import { Input } from '@/front-components/custom/Input/Input'
-import { useAuth } from 'frontend/common/hook/useAuth'
+import { useAuth } from '@/front-hooks/useAuth'
 
 export const Components = () => {
   const { isAuth, isLoading, userId } = useAuth()
