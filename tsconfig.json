@@ -39,6 +39,7 @@
       "@/api-validations/*": ["api/validations/*"],
       "@/api-utils/*": ["api/utils/*"],
       "@/api-guards/*": ["api/guards/*"],
+      "@/api-libs/*": ["api/libs/*"],
     }
 
   },
