@@ -2,10 +2,10 @@ import { UserRepository } from '@/api-repositories/user.repository'
 import { IUser } from '@/shared/interfaces/user.interface'
 import { TMongoId } from '@/shared/interfaces/utils'
 
-export const JwtGuard = async (id: TMongoId): Promise<TMongoId | null> => {
+export const JwtGuard = async (id: TMongoId | undefined): Promise<boolean> => {
   try {
     if (!id) {
-      return null
+      return false
     }
 
     const userRepository = new UserRepository()
@@ -13,12 +13,12 @@ export const JwtGuard = async (id: TMongoId): Promise<TMongoId | null> => {
     const user = await userRepository.findOneById<IUser>(id)
 
     if (!user) {
-      return null
+      return false
     }
 
-    return user._id
+    return true
   } catch (error) {
     console.log(error)
-    return null
+    return false
   }
 }

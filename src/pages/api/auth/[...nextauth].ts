@@ -7,22 +7,15 @@ export const authOptions: NextAuthOptions = {
   providers: [CredentialsProvider],
   callbacks: {
     async jwt({ account, token, user }) {
-      console.log('IN TOKEN')
-
       if (account) {
         token.id = user?.id as TMongoId
       }
 
-      const dbUserId = await JwtGuard(token.id)
-
-      if (!dbUserId) throw new Error('UNAUTHORIZED')
+      if (!JwtGuard(token.id)) throw new Error('UNAUTHORIZED')
 
       return token
     },
     session({ session, token }) {
-      console.log('IN SESSION')
-      console.log('-----------')
-
       session.user.id = token.id
 
       return session
