@@ -8,12 +8,16 @@ export const sessionCb: TSessionCb = ({ session, token }) => {
   return session
 }
 
-export const jwtCb: TJwtCb = ({ account, token, user }) => {
+export const jwtCb: TJwtCb = async ({ account, token, user }) => {
+  console.log('in token')
+
   if (account) {
     token.id = user?.id as TMongoId
   }
 
-  if (!JwtGuard(token.id)) throw new Error('UNAUTHORIZED')
+  const isValidToken = await JwtGuard(token.id)
+
+  if (!isValidToken) throw new Error('UNAUTHORIZED')
 
   return token
 }

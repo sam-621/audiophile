@@ -1,15 +1,19 @@
+import { HttpStatusCodes } from '@/api-constants/status-codes'
+import { JwtGuard } from '@/api-guards/jwt.guard'
 import { HandlerResponse } from '@/api-interfaces/utils.interface'
 import { UserService } from '@/api-services/user.service'
 import { NextApiRequest, NextApiResponse } from 'next'
-import { unstable_getServerSession } from 'next-auth'
-import { authOptions } from '../auth/[...nextauth]'
+import { getToken } from 'next-auth/jwt'
 
 const handler = async (req: NextApiRequest, res: NextApiResponse) => {
-  const session = await unstable_getServerSession(req, res, authOptions)
-  const id = session?.user.id
-  console.log(id)
+  const token = await getToken({ req })
+  const isValidToken = await JwtGuard(token?.id)
 
-  const { data, message, status } = await UserService.getProfile(id!)
+  if (!isValidToken) {
+    return new HandlerResponse(null, 'NO TOKEN PROVIDED', HttpStatusCodes.UNAUTHORIZED, res)
+  }
+
+  const { data, message, status } = await UserService.getProfile(token?.id!)
   return new HandlerResponse(data, message, status, res)
 }
 
