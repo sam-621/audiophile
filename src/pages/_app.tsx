@@ -4,6 +4,7 @@ import { Session } from 'next-auth'
 
 import '../frontend/styles/globals.css'
 import 'tailwindcss/tailwind.css'
+import { AppLayout } from '@/front-components/layouts/AppLayout'
 
 const MyApp = ({
   Component,
@@ -11,7 +12,9 @@ const MyApp = ({
 }: AppProps<{ session: Session }>) => {
   return (
     <SessionProvider session={session}>
-      <Component {...pageProps} />
+      <AppLayout>
+        <Component {...pageProps} />
+      </AppLayout>
     </SessionProvider>
   )
 }
