@@ -1,3 +1,5 @@
+import { LogoDark } from '@/front-components/atoms/Logo'
+
 export const SignUpView = () => {
-  return <h1>Sign up</h1>
+  return <LogoDark />
 }
