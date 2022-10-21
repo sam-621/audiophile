@@ -1,6 +1,6 @@
 import { HandlerResponse } from '@/api-interfaces/utils.interface'
+import { jwtMiddleware } from '@/api-middlewares/jwt.middleware'
 import { UserService } from '@/api-services/user.service'
-import { jwtMiddleware } from 'api/middlewares/jwt.middleware'
 import { NextApiRequest, NextApiResponse } from 'next'
 import { JWT } from 'next-auth/jwt'
 
