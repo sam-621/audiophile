@@ -2,7 +2,7 @@ import { TInputTypes } from '@/front-interfaces/utils.interface'
 import { FC } from 'react'
 import { UseFormRegisterReturn } from 'react-hook-form'
 
-export const TextInput: FC<Props> = ({ type, label, error, placeholder, className, register }) => {
+export const Input: FC<Props> = ({ type, label, error, placeholder, className, register }) => {
   return (
     <div className="flex flex-col gap-2">
       <div className="flex justify-between">
@@ -31,6 +31,6 @@ type Props = {
   error?: string
   placeholder?: string
   className?: string
-  register: UseFormRegisterReturn<any>
+  register: UseFormRegisterReturn<string>
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
 }

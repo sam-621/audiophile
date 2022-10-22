@@ -1,7 +1,7 @@
 import { AuthHeader } from '@/front-components/auth/AuthHeader'
 import { Button } from '@/front-components/custom/Button/Button'
 import { Form } from '@/front-components/custom/Form'
-import { TextInput } from '@/front-components/custom/Input/TextInput'
+import { Input } from '@/front-components/custom/Input/Input'
 import { useSignIn } from './hooks/useSignIn'
 
 export const SignInView = () => {
@@ -10,14 +10,14 @@ export const SignInView = () => {
     <>
       <AuthHeader />
       <Form title="SIGN IN" className="flex flex-col gap-6" onSubmit={onSubmit}>
-        <TextInput
+        <Input
           register={register('email')}
           type="email"
           label="Email"
           placeholder="Insert your email"
           error={errors.email?.message}
         />
-        <TextInput
+        <Input
           register={register('password')}
           type="password"
           label="Password"
