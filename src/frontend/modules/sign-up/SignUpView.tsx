@@ -1,7 +1,7 @@
 import { AuthHeader } from '@/front-components/auth/AuthHeader'
 import { Button } from '@/front-components/custom/Button/Button'
 import { Input } from '@/front-components/custom/Input/Input'
-import { FormCard } from '@/front-components/forms/FormCard'
+import { FormCard } from '@/front-components/custom/Form'
 
 export const SignUpView = () => {
   return (
