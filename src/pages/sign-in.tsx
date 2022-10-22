@@ -1,4 +1,3 @@
-import { Input } from '@/front-components/custom/Input/Input'
 import { SignInView } from '@/front-modules/sign-in/SignInView'
 import { signIn } from 'next-auth/react'
 import { useRouter } from 'next/router'

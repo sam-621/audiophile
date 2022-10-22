@@ -1,14 +1,8 @@
-import { ChangeEvent, FC } from 'react'
+import { TInputTypes } from '@/front-interfaces/utils.interface'
+import { FC } from 'react'
+import { UseFormRegisterReturn } from 'react-hook-form'
 
-export const TextInput: FC<Props> = ({
-  type,
-  label,
-  value,
-  error,
-  placeholder,
-  className,
-  onChange
-}) => {
+export const TextInput: FC<Props> = ({ type, label, error, placeholder, className, register }) => {
   return (
     <div className="flex flex-col gap-2">
       <div className="flex justify-between">
@@ -18,14 +12,13 @@ export const TextInput: FC<Props> = ({
         {error && <span className="text-error text-xs">{error}</span>}
       </div>
       <input
+        {...register}
         className={`caret-primary outline-none rounded-lg border-2 ${
           !error && 'border-[#C4C4C4]'
         } focus:border-primary px-6 py-4 text-black text-sm transition ${
           error && 'border-error focus:border-error caret-error'
         } ${className}`}
         type={type}
-        value={value}
-        onChange={onChange}
         placeholder={placeholder}
       />
     </div>
@@ -33,11 +26,11 @@ export const TextInput: FC<Props> = ({
 }
 
 type Props = {
-  type: 'text' | 'email' | 'password'
+  type: TInputTypes
   label: string
-  value: string
   error?: string
   placeholder?: string
   className?: string
-  onChange: (e: ChangeEvent<HTMLInputElement>) => void
+  register: UseFormRegisterReturn<any>
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
 }
