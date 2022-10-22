@@ -2,7 +2,7 @@ import Link from 'next/link'
 import { FC } from 'react'
 import { TButtonProps } from './Button'
 
-export const BaseButton: FC<Props> = ({ text, link, className, onClick }) => {
+export const BaseButton: FC<Props> = ({ text, link, className, disabled, onClick }) => {
   if (link) {
     return (
       <Link href={link.href}>
@@ -15,8 +15,11 @@ export const BaseButton: FC<Props> = ({ text, link, className, onClick }) => {
 
   return (
     <button
-      className={`bg-primary text-white hover:bg-primary-light transition ${className}`}
+      className={`bg-primary text-white hover:bg-primary-light transition ${
+        disabled && 'bg-primary-light'
+      } ${className}`}
       onClick={onClick}
+      disabled={disabled}
     >
       {text}
     </button>

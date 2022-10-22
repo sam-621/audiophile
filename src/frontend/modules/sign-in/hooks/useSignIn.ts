@@ -1,6 +1,8 @@
 import { joiResolver } from '@hookform/resolvers/joi'
 import Joi from 'joi'
 import { signIn } from 'next-auth/react'
+import { useRouter } from 'next/router'
+import { useState } from 'react'
 import { useForm } from 'react-hook-form'
 
 const schema = Joi.object<IFormInputs>({
@@ -11,27 +13,36 @@ const schema = Joi.object<IFormInputs>({
 })
 
 export const useSignIn = () => {
-  const {
-    register,
-    handleSubmit,
-    formState: { errors }
-  } = useForm<IFormInputs>({
+  const { push } = useRouter()
+  const [isLoading, setIsLoading] = useState(false)
+  const { register, handleSubmit, formState } = useForm<IFormInputs>({
     resolver: joiResolver(schema)
   })
+  const { errors } = formState
 
   const onSubmit = async (data: IFormInputs) => {
     try {
+      setIsLoading(true)
       const res = await signIn('credentials', { ...data, redirect: false })
-      console.log({ res })
+      console.log({
+        res
+      })
+
+      if (res?.ok) {
+        await push('/')
+      }
+      setIsLoading(false)
     } catch (error) {
       console.log(error)
+      setIsLoading(false)
     }
   }
 
   return {
     onSubmit: handleSubmit(onSubmit),
     register,
-    errors
+    errors,
+    isLoading
   }
 }
 

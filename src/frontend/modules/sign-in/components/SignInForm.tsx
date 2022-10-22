@@ -4,7 +4,7 @@ import { Input } from '@/front-components/custom/Input/Input'
 import { useSignIn } from '../hooks/useSignIn'
 
 export const SignInForm = () => {
-  const { onSubmit, register, errors } = useSignIn()
+  const { onSubmit, register, errors, isLoading } = useSignIn()
 
   return (
     <Form title="SIGN IN" className="flex flex-col gap-6" onSubmit={onSubmit}>
@@ -22,7 +22,7 @@ export const SignInForm = () => {
         placeholder="Insert your password"
         error={errors.password?.message}
       />
-      <Button variant="base" text="Submit" />
+      <Button variant="base" text="Submit" disabled={isLoading} />
     </Form>
   )
 }
