@@ -32,11 +32,11 @@ export class Repository {
     return result as unknown as TEntityWithId<T>
   }
 
-  async find<T = Document>(): Promise<TEntityWithId<T>> {
+  async find<T = Document>(): Promise<TEntityWithId<T>[]> {
     const collection = await this.getDbCollection()
     const result = await collection.find().toArray()
 
-    return result as unknown as TEntityWithId<T>
+    return result as unknown as TEntityWithId<T>[]
   }
 
   async insert(input: Document): Promise<InsertOneResult<Document>> {
