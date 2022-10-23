@@ -30,6 +30,7 @@
       "@/front-interfaces/*": ["frontend/common/interfaces/*"],
       "@/front-hooks/*": ["frontend/common/hooks/*"],
       "@/front-contexts/*": ["frontend/common/contexts/*"],
+      "@/front-services/*": ["frontend/common/services/*"],
 
       "---------- Back-end ----------": ["--------------------"],
       "@/api-db/*": ["api/db/*"],
