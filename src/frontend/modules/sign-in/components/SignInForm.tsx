@@ -1,3 +1,4 @@
+import { AuthFooter } from '@/front-components/auth/AuthFooter'
 import { Button } from '@/front-components/custom/Button/Button'
 import { Form } from '@/front-components/custom/Form'
 import { Input } from '@/front-components/custom/Input/Input'
@@ -33,6 +34,7 @@ export const SignInForm = () => {
         </div>
       </div>
       <Button variant="base" text="Submit" disabled={isLoading} />
+      <AuthFooter isSignInForm />
     </Form>
   )
 }
