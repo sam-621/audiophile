@@ -32,6 +32,7 @@
       "@/front-contexts/*": ["frontend/common/contexts/*"],
       "@/front-services/*": ["frontend/common/services/*"],
       "@/front-constants/*": ["frontend/common/constants/*"],
+      "@/front-fetchers/*": ["frontend/common/fetchers/*"],
 
       "---------- Back-end ----------": ["--------------------"],
       "@/api-db/*": ["api/db/*"],
