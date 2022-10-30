@@ -1,7 +1,7 @@
-import { Nav } from '@/front-components/sections/Nav'
+import { HomeView } from '@/front-modules/Home/HomeView'
 
 export const Home = () => {
-  return <Nav />
+  return <HomeView />
 }
 
 export default Home
