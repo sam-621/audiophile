@@ -9,10 +9,10 @@ export type TRequestOptions = {
 }
 
 export class ServiceResponse<T> {
-  data: T
-  response: AxiosResponse<Response<T>>
+  data: T | null
+  response: AxiosResponse<Response<T | unknown>> | null
 
-  constructor(data: T, response: AxiosResponse) {
+  constructor(data: T | null, response: AxiosResponse | null) {
     this.data = data
     this.response = response
   }
