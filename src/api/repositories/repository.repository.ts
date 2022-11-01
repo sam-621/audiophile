@@ -1,6 +1,6 @@
 import { getConnection } from '@/api-db/connection'
 import { TCollection } from '@/api-interfaces/utils.interface'
-import { TEntityWithId, TMongoId } from '@/shared/interfaces/utils'
+import { TMongoId } from '@/shared/interfaces/utils'
 import { Document, Filter, InsertOneResult, ModifyResult, ObjectId } from 'mongodb'
 
 export class Repository {
@@ -23,11 +23,11 @@ export class Repository {
    * @param id mongo id
    * @returns Document
    */
-  async findOneById<T = Document>(id: TMongoId): Promise<TEntityWithId<T>> {
+  async findOneById<T = Document>(id: TMongoId): Promise<T> {
     const collection = await this.getDbCollection()
     const result = await collection.findOne({ _id: new ObjectId(id) })
 
-    return result as unknown as TEntityWithId<T>
+    return result as unknown as T
   }
 
   /**
@@ -35,22 +35,22 @@ export class Repository {
    * @param filter Filter applied to the search
    * @returns Document
    */
-  async findOneByFilter<T = Document>(filter: Filter<T>): Promise<TEntityWithId<T>> {
+  async findOneByFilter<T = Document>(filter: Filter<T>): Promise<T> {
     const collection = await this.getDbCollection()
     const result = await collection.findOne(filter)
 
-    return result as unknown as TEntityWithId<T>
+    return result as unknown as T
   }
 
   /**
    * Method which returns all documents found in the collection given
    * @returns Array of documents
    */
-  async find<T = Document>(): Promise<TEntityWithId<T>[]> {
+  async find<T = Document>(): Promise<T[]> {
     const collection = await this.getDbCollection()
     const result = await collection.find().toArray()
 
-    return result as unknown as TEntityWithId<T>[]
+    return result as unknown as T[]
   }
 
   /**

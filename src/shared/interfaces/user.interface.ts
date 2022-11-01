@@ -1,7 +1,9 @@
 import { ICart } from './cart.interface'
 import { IOrder } from './order.interface'
+import { TMongoId } from './utils'
 
 export interface IUser {
+  _id: TMongoId
   firstName: string
   lastName: string
   email: string

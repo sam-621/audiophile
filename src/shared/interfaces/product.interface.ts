@@ -1,6 +1,7 @@
-import { TEntityWithId } from './utils'
+import { TMongoId } from './utils'
 
 export interface IProduct {
+  _id: TMongoId
   slug: string
   name: string
   image: TImage
@@ -14,8 +15,6 @@ export interface IProduct {
   gallery: TGallery
   others: TOthers[]
 }
-
-export type TDBProduct = TEntityWithId<IProduct>
 
 export type TCategory = 'earphones' | 'headphones' | 'speakers'
 

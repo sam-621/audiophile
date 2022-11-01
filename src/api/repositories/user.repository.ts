@@ -1,5 +1,4 @@
-import { TSignUpInput } from '@/api-interfaces/user.interfaces'
-import { IUser } from '@/shared/interfaces/user.interface'
+import { TSaveUser, TSignUpInput } from '@/api-interfaces/user.interfaces'
 import { TMongoId } from '@/shared/interfaces/utils'
 import { Repository } from './repository.repository'
 
@@ -9,7 +8,7 @@ export class UserRepository extends Repository {
   }
 
   async save(user: TSignUpInput): Promise<TMongoId> {
-    const newUser: IUser = {
+    const newUser: TSaveUser = {
       ...user,
       cart: { amount: 0, products: [] },
       shopping_history: [],
