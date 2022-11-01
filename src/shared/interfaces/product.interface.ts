@@ -1,3 +1,5 @@
+import { TEntityWithId } from './utils'
+
 export interface IProduct {
   slug: string
   name: string
@@ -12,6 +14,8 @@ export interface IProduct {
   gallery: TGallery
   others: TOthers[]
 }
+
+export type TDBProduct = TEntityWithId<IProduct>
 
 export type TCategory = 'earphones' | 'headphones' | 'speakers'
 
