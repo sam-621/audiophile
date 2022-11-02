@@ -5,7 +5,7 @@ import HttpRequest from './http-request.service'
 
 class ProductService extends HttpRequest {
   async getAll(): Promise<ServiceResponse<IProduct[] | null>> {
-    this.configRequest({ endpoint: '/api/products/all' })
+    this.configRequest({ endpoint: 'http://localhost:8080/api/products/all' })
 
     try {
       const res = await this.get<IProduct[]>()

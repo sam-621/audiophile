@@ -9,8 +9,6 @@ export const sessionCb: TSessionCb = ({ session, token }) => {
 }
 
 export const jwtCb: TJwtCb = async ({ account, token, user }) => {
-  console.log('in token')
-
   if (account) {
     token.id = user?.id as TMongoId
   }

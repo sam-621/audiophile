@@ -8,8 +8,8 @@ export const useGetProducts = () => {
   const newProduct = getNewProduct(res.data || [])
 
   return {
-    products: res.data,
     newProduct,
-    ...res
+    products: res.data,
+    isLoading: res.isLoading
   }
 }
