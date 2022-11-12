@@ -1,1 +1,1 @@
-export * from './useGetProducts'
+export * from './useAllProducts'

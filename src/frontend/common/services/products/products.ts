@@ -1,9 +1,9 @@
-import axios from 'axios'
-
 import { IProduct } from '@/shared/interfaces/product'
 
+import { axiosClient } from '../config/axios'
+
 export const getAllProducts = async (): Promise<IProduct[]> => {
-  const res = await axios.get(`${process.env.NEXT_PUBLIC_BASE_API_URL}/products/all`)
+  const res = await axiosClient.get(`/products/all`)
 
   return res.data
 }

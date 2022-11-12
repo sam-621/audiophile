@@ -1,7 +1,5 @@
 import axios from 'axios'
 
-import { BASE_API_URL } from '@/front-constants'
-
 export const axiosClient = axios.create({
-  baseURL: BASE_API_URL
+  baseURL: process.env.NEXT_PUBLIC_BASE_API_URL
 })

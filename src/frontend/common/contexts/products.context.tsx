@@ -1,28 +1,25 @@
-import { createContext, FC, PropsWithChildren } from 'react'
-
-import { useQuery } from '@tanstack/react-query'
+import { createContext, FC, PropsWithChildren, useMemo } from 'react'
 
 import { IProduct } from '@/shared/interfaces/product'
 
+import { useAllProducts } from '../hooks/petitions'
 import { ProductsContextSchema } from '../interfaces/contexts'
-import { getAllProducts } from '../services/products'
 
 export const ProductsContext = createContext<ProductsContextSchema>({
   products: []
 })
 
 export const ProductsProvider: FC<PropsWithChildren<Props>> = ({ products, children }) => {
-  const result = useQuery({
-    queryKey: ['products'],
-    queryFn: getAllProducts,
-    initialData: products
-  })
+  const { data } = useAllProducts({ initialData: products })
 
-  return (
-    <ProductsContext.Provider value={{ products: result.data }}>
-      {children}
-    </ProductsContext.Provider>
+  const contextValue = useMemo(
+    () => ({
+      products: data || []
+    }),
+    [data]
   )
+
+  return <ProductsContext.Provider value={contextValue}>{children}</ProductsContext.Provider>
 }
 
 type Props = {

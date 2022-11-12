@@ -2,7 +2,7 @@ import { FC } from 'react'
 
 import { UseFormRegisterReturn } from 'react-hook-form'
 
-import { TInputTypes } from '@/front-interfaces'
+import { InputTypes } from '@/front-interfaces'
 
 export const Input: FC<Props> = ({ type, label, error, placeholder, className, register }) => {
   return (
@@ -28,7 +28,7 @@ export const Input: FC<Props> = ({ type, label, error, placeholder, className, r
 }
 
 type Props = {
-  type: TInputTypes
+  type: InputTypes
   label: string
   error?: string
   placeholder?: string
