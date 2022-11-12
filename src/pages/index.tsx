@@ -2,8 +2,8 @@ import { FC } from 'react'
 import { GetStaticProps } from 'next'
 
 import { ProductsProvider } from '@/front-contexts'
-import { getAllProducts } from '@/front-fetchers'
 import { HomeView } from '@/front-modules'
+import { getAllProducts } from '@/front-services'
 import { IProduct } from '@/shared/interfaces/product'
 
 export const Home: FC<Props> = ({ products }) => {
