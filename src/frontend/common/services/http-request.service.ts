@@ -1,3 +1,4 @@
+import { BASE_API_URL } from '@/front-constants/env.constants'
 import { TRequestOptions } from '@/front-interfaces/services/http-request.interface'
 import { THashMap } from '@/shared/interfaces/utils'
 import axios, { AxiosResponse } from 'axios'
@@ -9,7 +10,7 @@ export default class HttpRequest {
 
   constructor() {
     this.endpoint = ''
-    this.apiDomain = ''
+    this.apiDomain = BASE_API_URL || ''
     this.headers = {
       'Content-Type': 'application/json'
     }
