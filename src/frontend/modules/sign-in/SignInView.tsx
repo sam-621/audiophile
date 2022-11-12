@@ -1,4 +1,4 @@
-import { AuthHeader } from '@/front-components/auth/AuthHeader'
+import { AuthHeader } from '@/front-components'
 import { SignInForm } from './components/SignInForm'
 
 export const SignInView = () => {

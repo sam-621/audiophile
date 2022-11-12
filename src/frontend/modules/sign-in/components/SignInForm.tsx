@@ -1,7 +1,4 @@
-import { AuthFooter } from '@/front-components/auth/AuthFooter'
-import { Button } from '@/front-components/custom/Button/Button'
-import { Form } from '@/front-components/custom/Form'
-import { Input } from '@/front-components/custom/Input/Input'
+import { AuthFooter, Button, Form, Input } from '@/front-components'
 import Link from 'next/link'
 import { useSignIn } from '../hooks/useSignIn'
 

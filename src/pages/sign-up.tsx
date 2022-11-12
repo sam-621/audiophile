@@ -1,5 +1,5 @@
-import { AuthLayout } from '@/front-components/layouts/AuthLayout'
-import { SignUpView } from '@/front-modules/sign-up/SignUpView'
+import { AuthLayout } from '@/front-components'
+import { SignUpView } from '@/front-modules'
 
 const SignUpPage = () => {
   return (
