@@ -1,1 +1,1 @@
-export * from './products-context.interface'
+export * from './products-context'

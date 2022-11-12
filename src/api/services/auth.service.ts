@@ -3,7 +3,7 @@ import { IPayloadInput } from '@/api-interfaces/auth.interfaces'
 import { TSignInDto, TSignUpDto, TSignUpInput } from '@/api-interfaces/user.interfaces'
 import { ServiceResponse } from '@/api-interfaces/utils.interface'
 import { UserRepository } from '@/api-repositories/user.repository'
-import { IUser } from '@/shared/interfaces/user.interface'
+import { IUser } from '@/shared/interfaces/user'
 import { TMongoId } from '@/shared/interfaces/utils'
 import { SecurityService } from './security.service'
 

@@ -1,4 +1,4 @@
-import { IUser } from '@/shared/interfaces/user.interface'
+import { IUser } from '@/shared/interfaces/user'
 
 // Inputs
 export type TSignUpInput = Pick<IUser, 'firstName' | 'lastName' | 'email' | 'password'>

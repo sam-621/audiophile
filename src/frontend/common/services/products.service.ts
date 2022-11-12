@@ -1,6 +1,9 @@
-import { ServiceResponse } from '@/front-interfaces/services/http-request.interface'
-import { IProduct } from '@/shared/interfaces/product.interface'
 import { AxiosError } from 'axios'
+
+import { IProduct } from '@/shared/interfaces/product'
+
+import { ServiceResponse } from '../interfaces/services'
+
 import HttpRequest from './http-request.service'
 
 class ProductService extends HttpRequest {

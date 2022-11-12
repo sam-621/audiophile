@@ -1,7 +1,7 @@
 import { HttpStatusCodes } from '@/api-constants/status-codes'
 import { ServiceResponse } from '@/api-interfaces/utils.interface'
 import { ProductRepository } from '@/api-repositories/products.repository'
-import { IProduct } from '@/shared/interfaces/product.interface'
+import { IProduct } from '@/shared/interfaces/product'
 import { TMongoId } from '@/shared/interfaces/utils'
 
 export class ProductService {

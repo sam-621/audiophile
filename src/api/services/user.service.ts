@@ -1,6 +1,6 @@
 import { ServiceResponse } from '@/api-interfaces/utils.interface'
 import { UserRepository } from '@/api-repositories/user.repository'
-import { IUser } from '@/shared/interfaces/user.interface'
+import { IUser } from '@/shared/interfaces/user'
 import { TMongoId } from '@/shared/interfaces/utils'
 
 export class UserService {

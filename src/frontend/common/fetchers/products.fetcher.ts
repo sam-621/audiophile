@@ -1,5 +1,6 @@
-import { productService } from '@/front-services/products.service'
-import { IProduct } from '@/shared/interfaces/product.interface'
+import { IProduct } from '@/shared/interfaces/product'
+
+import { productService } from '../services/products.service'
 
 export const getAllProducts = async (): Promise<IProduct[]> => {
   const { data } = await productService.getAll()

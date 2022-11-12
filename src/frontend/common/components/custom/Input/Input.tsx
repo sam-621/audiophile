@@ -1,6 +1,8 @@
-import { TInputTypes } from '@/front-interfaces/utils.interface'
 import { FC } from 'react'
+
 import { UseFormRegisterReturn } from 'react-hook-form'
+
+import { TInputTypes } from '@/front-interfaces'
 
 export const Input: FC<Props> = ({ type, label, error, placeholder, className, register }) => {
   return (

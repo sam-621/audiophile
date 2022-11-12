@@ -1,5 +1,4 @@
-import { ICart } from './cart.interface'
-import { IOrder } from './order.interface'
+import { ICart } from './cart'
 import { TMongoId } from './utils'
 
 export interface IUser {
@@ -10,7 +9,6 @@ export interface IUser {
   password: string
   phone: string | null
   address: TAddress | null
-  shopping_history: IOrder[]
   cart: ICart
 }
 

@@ -1,8 +1,9 @@
-import { getAllProducts } from '@/front-fetchers/products.fetcher'
-import { ProductsContextSchema } from '@/front-interfaces/contexts/products-context.interface'
-import { IProduct } from '@/shared/interfaces/product.interface'
-import { useQuery } from '@tanstack/react-query'
 import { createContext, FC, PropsWithChildren } from 'react'
+
+import { useQuery } from '@tanstack/react-query'
+
+import { getAllProducts } from '../fetchers/products.fetcher'
+import { ProductsContextSchema } from '../interfaces/contexts'
 
 export const ProductsContext = createContext<ProductsContextSchema>({
   products: []

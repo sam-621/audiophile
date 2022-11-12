@@ -1,6 +1,8 @@
-import { Nav } from '@/front-components/sections/Nav'
-import { ProductsContext } from '@/front-contexts/products.context'
 import { useContext } from 'react'
+
+import { Nav } from '@/front-components'
+import { ProductsContext } from '@/front-contexts'
+
 import { HomeHeader } from './components/HomeHeader'
 
 export const HomeView = () => {

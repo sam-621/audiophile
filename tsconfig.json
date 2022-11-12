@@ -1,23 +1,19 @@
 {
   "compilerOptions": {
     "target": "es5",
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext"
-    ],
+    "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
     "skipLibCheck": true,
     "strict": true,
     "forceConsistentCasingInFileNames": true,
     "noEmit": true,
-    "incremental": true,
     "esModuleInterop": true,
     "module": "esnext",
     "moduleResolution": "node",
     "resolveJsonModule": true,
     "isolatedModules": true,
     "jsx": "preserve",
+    "incremental": true,
     "baseUrl": "src",
     "paths": {
       "---------- Shared ----------": ["--------------------"],
@@ -53,8 +49,8 @@
     "**/*.ts",
     "**/*.tsx", 
     "src/pages/_document.tsx",
-    "src/pages/_app.js"
-, "src/frontend/common/components/custom/Loader.jsx"  ],
+    "src/pages/_app.js"  
+  ],
   "exclude": [
     "node_modules",
     ".storybook"

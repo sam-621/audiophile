@@ -1,7 +1,8 @@
-import { CACHE_KEYS } from '@/front-constants/queries-cache'
-import { getAllProducts } from '@/front-fetchers/products.fetcher'
-import { getNewProduct } from '@/front-utils/products'
 import { useQuery } from '@tanstack/react-query'
+
+import { CACHE_KEYS } from '@/front-constants'
+import { getAllProducts } from '@/front-fetchers'
+import { getNewProduct } from '@/front-utils'
 
 export const useGetProducts = () => {
   const res = useQuery(CACHE_KEYS.ALL_PRODUCTS, getAllProducts)

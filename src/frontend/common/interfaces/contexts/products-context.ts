@@ -1,4 +1,4 @@
-import { IProduct } from '@/shared/interfaces/product.interface'
+import { IProduct } from '@/shared/interfaces/product'
 
 export interface ProductsContextSchema {
   products: IProduct[]
