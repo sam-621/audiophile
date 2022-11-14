@@ -1,4 +1,5 @@
 import { FC } from 'react'
+
 import { BaseButton } from './BaseButton'
 import { OutlinedButton } from './OutlinedButton'
 import { TextButton } from './TextButton'
@@ -11,7 +12,7 @@ export const Button: FC<Props> = ({ variant, text, link, className, disabled, on
           text={text}
           link={link}
           onClick={onClick}
-          className={`py-4 px-7 text-xs ${className}`}
+          className={`py-4 px-7 text-xs font-bold ${className}`}
           disabled={disabled}
         />
       )
@@ -21,12 +22,17 @@ export const Button: FC<Props> = ({ variant, text, link, className, disabled, on
           text={text}
           link={link}
           onClick={onClick}
-          className={`py-4 px-7 text-xs ${className}`}
+          className={`py-4 px-7 text-xs font-bold ${className}`}
         />
       )
     case 'text':
       return (
-        <TextButton text={text} link={link} onClick={onClick} className={`text-xs ${className}`} />
+        <TextButton
+          text={text}
+          link={link}
+          onClick={onClick}
+          className={`text-xs font-bold ${className}`}
+        />
       )
     default:
       return (
@@ -34,7 +40,7 @@ export const Button: FC<Props> = ({ variant, text, link, className, disabled, on
           text={text}
           link={link}
           onClick={onClick}
-          className={`py-4 px-7 text-xs ${className}`}
+          className={`py-4 px-7 text-xs font-bold ${className}`}
         />
       )
   }
