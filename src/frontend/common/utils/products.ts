@@ -1,5 +1,5 @@
 import { IProduct } from '@/shared/interfaces/product'
 
-export const getNewProduct = (products: IProduct[]) => {
-  return products?.find(product => Boolean(product.new))
+export const getNewProducts = (products: IProduct[]) => {
+  return products?.filter(product => Boolean(product.new))
 }

@@ -4,21 +4,21 @@ import { IProduct } from '@/shared/interfaces/product'
 
 import { useAllProducts } from '../hooks/petitions'
 import { ProductsContextSchema } from '../interfaces/contexts'
-import { getNewProduct } from '../utils/products'
+import { getNewProducts } from '../utils/products'
 
 export const ProductsContext = createContext<ProductsContextSchema>({
   products: [],
-  newProduct: null
+  newProducts: []
 })
 
 export const ProductsProvider: FC<PropsWithChildren<Props>> = ({ products, children }) => {
   const { data } = useAllProducts({ initialData: products })
-  const newProduct = getNewProduct(data || []) || null
+  const newProducts = getNewProducts(data || [])
 
   const contextValue = useMemo(
     () => ({
       products: data || [],
-      newProduct
+      newProducts
     }),
     [data]
   )
