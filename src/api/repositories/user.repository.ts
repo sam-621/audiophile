@@ -1,5 +1,6 @@
 import { TSaveUser, TSignUpInput } from '@/api-interfaces/user.interfaces'
 import { TMongoId } from '@/shared/interfaces/utils'
+
 import { Repository } from './repository.repository'
 
 export class UserRepository extends Repository {
@@ -11,7 +12,6 @@ export class UserRepository extends Repository {
     const newUser: TSaveUser = {
       ...user,
       cart: { amount: 0, products: [] },
-      shopping_history: [],
       address: null,
       phone: null
     }

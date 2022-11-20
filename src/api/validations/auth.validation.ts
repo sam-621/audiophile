@@ -11,7 +11,7 @@ export const signUpValidator = (input: TSignUpDto): string[] | undefined => {
 
   const { error } = schema.validate(input)
 
-  return error?.details.map((item) => item.message)
+  return error?.details.map(item => item.message)
 }
 
 export const signInValidator = (input: TSignInDto): string[] | undefined => {
@@ -22,5 +22,5 @@ export const signInValidator = (input: TSignInDto): string[] | undefined => {
 
   const { error } = schema.validate(input)
 
-  return error?.details.map((item) => item.message)
+  return error?.details.map(item => item.message)
 }

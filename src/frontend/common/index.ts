@@ -1,7 +1,6 @@
 export * from './components'
 export * from './constants'
 export * from './contexts'
-export * from './fetchers'
 export * from './hooks'
 export * from './interfaces'
 export * from './services'
