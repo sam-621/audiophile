@@ -30,7 +30,7 @@ export const HomeHeader = () => {
             <div className="flex justify-center lg:justify-start">
               <Button
                 variant="base"
-                text="SEE PRODUCTS"
+                text="SEE PRODUCT"
                 link={{ href: `/products/${newHeadphones?.slug}` }}
               />
             </div>
