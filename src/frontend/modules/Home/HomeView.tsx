@@ -1,4 +1,4 @@
-import { Category, MainLayout, Nav } from '@/front-components'
+import { About, Category, MainLayout, Nav } from '@/front-components'
 
 import { HomeHeader } from './components/HomeHeader'
 
@@ -9,6 +9,7 @@ export const HomeView = () => {
       <HomeHeader />
       <MainLayout>
         <Category />
+        <About />
       </MainLayout>
     </>
   )
