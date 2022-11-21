@@ -1,4 +1,4 @@
-import { AuthFooter, Button, Form, Input } from '@/front-components'
+import { AuthFooter, Button, ErrorMessage, Form, Input } from '@/front-components'
 import Link from 'next/link'
 import { useSignIn } from '../hooks/useSignIn'
 
@@ -34,6 +34,7 @@ export const SignInForm = () => {
           </Link>
         </div>
       </div>
+      <ErrorMessage error={globalError} />
       <Button type="submit" variant="base" text="SIGN IN" disabled={isLoading} />
       <AuthFooter isSignInForm />
     </Form>

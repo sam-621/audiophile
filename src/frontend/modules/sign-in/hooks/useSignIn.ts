@@ -29,12 +29,14 @@ export const useSignIn = () => {
       setIsLoading(true)
       const res = await signIn('credentials', { ...data, redirect: false })
 
-      const errorMessage = getErrorMessage({ module: 'sign-in', statusCode: res?.status })
-      setGlobalError(errorMessage)
-
-      if (res?.ok) {
-        await push('/')
+      if (!res?.ok) {
+        const errorMessage = getErrorMessage({ module: 'sign-in', statusCode: res?.status })
+        setGlobalError(errorMessage)
+        setIsLoading(false)
+        return
       }
+
+      await push('/')
       setIsLoading(false)
     } catch (error) {
       console.log(error)

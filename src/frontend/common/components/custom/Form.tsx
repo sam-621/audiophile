@@ -2,7 +2,7 @@ import { FC, FormEventHandler, ReactNode } from 'react'
 
 export const Form: FC<Props> = ({ children, title, className, onSubmit }) => {
   return (
-    <div className="p-6 bg-white rounded-lg shadow-sm max-w-lg m-auto">
+    <div className="p-6 bg-white rounded-lg shadow-card max-w-lg m-auto">
       <h2 className="text-left text-3xl font-bold mb-8">{title}</h2>
       <form className={className} onSubmit={onSubmit}>
         {children}
