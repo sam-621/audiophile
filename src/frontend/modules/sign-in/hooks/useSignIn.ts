@@ -1,4 +1,5 @@
 import { joiResolver } from '@hookform/resolvers/joi'
+import { getErrorMessage } from 'frontend/common/utils/errors'
 import Joi from 'joi'
 import { signIn } from 'next-auth/react'
 import { useRouter } from 'next/router'
@@ -15,15 +16,21 @@ const schema = Joi.object<IFormInputs>({
 export const useSignIn = () => {
   const { push } = useRouter()
   const [isLoading, setIsLoading] = useState(false)
+  const [globalError, setGlobalError] = useState('')
+
   const { register, handleSubmit, formState } = useForm<IFormInputs>({
     resolver: joiResolver(schema)
   })
+
   const { errors } = formState
 
   const onSubmit = async (data: IFormInputs) => {
     try {
       setIsLoading(true)
       const res = await signIn('credentials', { ...data, redirect: false })
+
+      const errorMessage = getErrorMessage({ module: 'sign-in', statusCode: res?.status })
+      setGlobalError(errorMessage)
 
       if (res?.ok) {
         await push('/')
@@ -39,6 +46,7 @@ export const useSignIn = () => {
     onSubmit: handleSubmit(onSubmit),
     register,
     errors,
+    globalError,
     isLoading
   }
 }

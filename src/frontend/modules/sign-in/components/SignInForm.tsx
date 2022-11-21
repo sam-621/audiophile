@@ -3,7 +3,7 @@ import Link from 'next/link'
 import { useSignIn } from '../hooks/useSignIn'
 
 export const SignInForm = () => {
-  const { onSubmit, register, errors, isLoading } = useSignIn()
+  const { onSubmit, register, errors, globalError, isLoading } = useSignIn()
 
   return (
     <Form title="SIGN IN" className="flex flex-col gap-6" onSubmit={onSubmit}>
