@@ -32,15 +32,9 @@ export class AuthService {
         lastName: user.lastName
       }
 
-      const userSavedId = await userRepository.save(userToSave)
+      await userRepository.save(userToSave)
 
-      const payload: IPayloadInput = {
-        id: userSavedId
-      }
-
-      const token = SecurityService.createJWT(payload)
-
-      return new ServiceResponse(token, 'OK', HttpStatusCodes.OK)
+      return new ServiceResponse(null, 'OK', HttpStatusCodes.CREATED)
     } catch (error) {
       console.log(error)
 

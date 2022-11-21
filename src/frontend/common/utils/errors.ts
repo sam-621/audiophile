@@ -1,12 +1,12 @@
 import { AxiosError } from 'axios'
-import { Response } from '../interfaces/utils'
+import { ApiResponse } from '../interfaces/utils'
 
 type ErrorModule = 'generic' | 'sign-in' | 'sign-up'
 
 type ErrorMessageConfig = {
   statusCode?: number
   module?: ErrorModule
-  axiosResponse?: AxiosError<Response<null>>
+  axiosResponse?: AxiosError<ApiResponse<null>>
 }
 
 enum Messages {
