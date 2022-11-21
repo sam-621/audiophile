@@ -3,7 +3,7 @@ import Link from 'next/link'
 
 import { TButtonProps } from './Button'
 
-export const BaseButton: FC<Props> = ({ text, link, className, disabled, onClick }) => {
+export const BaseButton: FC<Props> = ({ text, link, className, disabled, type, onClick }) => {
   if (link) {
     return (
       <Link href={link.href}>
@@ -25,7 +25,7 @@ export const BaseButton: FC<Props> = ({ text, link, className, disabled, onClick
       } ${className}`}
       onClick={onClick}
       disabled={disabled}
-      type="button"
+      type={type || 'button'}
     >
       {text}
     </button>

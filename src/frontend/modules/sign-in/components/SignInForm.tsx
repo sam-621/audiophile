@@ -34,7 +34,7 @@ export const SignInForm = () => {
           </Link>
         </div>
       </div>
-      <Button variant="base" text="SIGN IN" disabled={isLoading} />
+      <Button type="submit" variant="base" text="SIGN IN" disabled={isLoading} />
       <AuthFooter isSignInForm />
     </Form>
   )

@@ -3,7 +3,7 @@ import Link from 'next/link'
 
 import { TButtonProps } from './Button'
 
-export const OutlinedButton: FC<Props> = ({ text, link, className, onClick }) => {
+export const OutlinedButton: FC<Props> = ({ text, link, className, type, onClick }) => {
   if (link) {
     return (
       <Link href={link.href}>
@@ -22,7 +22,7 @@ export const OutlinedButton: FC<Props> = ({ text, link, className, onClick }) =>
       style={{ letterSpacing: 1 }}
       className={`bg-none text-black border border-black hover:bg-black hover:text-white transition ${className}`}
       onClick={onClick}
-      type="button"
+      type={type || 'button'}
     >
       {text}
     </button>
