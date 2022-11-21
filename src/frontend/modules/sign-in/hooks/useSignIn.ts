@@ -24,9 +24,6 @@ export const useSignIn = () => {
     try {
       setIsLoading(true)
       const res = await signIn('credentials', { ...data, redirect: false })
-      console.log({
-        res
-      })
 
       if (res?.ok) {
         await push('/')
