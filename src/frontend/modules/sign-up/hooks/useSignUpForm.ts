@@ -5,17 +5,23 @@ import { signIn } from 'next-auth/react'
 import { useRouter } from 'next/router'
 import { useState } from 'react'
 import { useForm } from 'react-hook-form'
+import { SignUpDto } from '../interfaces/dtos'
+import { useSignUp } from './petitions/useSignUp'
 
 const schema = Joi.object<IFormInputs>({
   email: Joi.string()
     .email({ minDomainSegments: 2, tlds: { allow: ['com', 'net'] } })
     .message('Must be a valid email'),
-  password: Joi.string().min(6).message('Must be at least 6 characters long')
+  password: Joi.string().min(6).message('Must be at least 6 characters long'),
+  firstName: Joi.string().required().message('First name is required'),
+  lastName: Joi.string().required().message('Last name is required'),
+  confirmPassword: Joi.string().min(6).message('Must be at least 6 characters long')
 })
 
-export const useSignIn = () => {
+export const useSignUpForm = () => {
   const { push } = useRouter()
   const [globalError, setGlobalError] = useState('')
+  const { mutateAsync: signUp, error } = useSignUp()
 
   const { register, handleSubmit, formState } = useForm<IFormInputs>({
     resolver: joiResolver(schema)
@@ -24,15 +30,14 @@ export const useSignIn = () => {
   const { errors, isSubmitting } = formState
 
   const onSubmit = async (data: IFormInputs) => {
+    if (data.confirmPassword !== data.password) {
+      setGlobalError('Passwords must match')
+      return
+    }
+
     try {
-      const res = await signIn('credentials', { ...data, redirect: false })
-
-      if (!res?.ok) {
-        const errorMessage = getErrorMessage({ module: 'sign-in', statusCode: res?.status })
-        setGlobalError(errorMessage)
-        return
-      }
-
+      await signUp(data)
+      await signIn('credentials', { ...data, redirect: false })
       await push('/')
     } catch (error) {
       console.log(error)
@@ -43,12 +48,13 @@ export const useSignIn = () => {
     onSubmit: handleSubmit(onSubmit),
     register,
     errors,
-    globalError,
+    globalError:
+      globalError ||
+      getErrorMessage({ axiosResponse: error, module: 'sign-up', statusCode: error?.status }),
     isSubmitting
   }
 }
 
-interface IFormInputs {
-  email: string
-  password: string
+type IFormInputs = SignUpDto & {
+  confirmPassword: string
 }

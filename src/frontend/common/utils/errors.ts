@@ -6,7 +6,7 @@ type ErrorModule = 'generic' | 'sign-in' | 'sign-up'
 type ErrorMessageConfig = {
   statusCode?: number
   module?: ErrorModule
-  axiosResponse?: AxiosError<ApiResponse<null>>
+  axiosResponse?: AxiosError<ApiResponse<null>> | null
 }
 
 enum Messages {
