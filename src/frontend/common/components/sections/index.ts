@@ -1,4 +1,4 @@
 export * from './Categories'
-export * from './Nav'
+export * from './NavSection'
 export * from './About'
 export * from './Footer'

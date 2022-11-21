@@ -4,7 +4,15 @@ import { BaseButton } from './BaseButton'
 import { OutlinedButton } from './OutlinedButton'
 import { TextButton } from './TextButton'
 
-export const Button: FC<Props> = ({ variant, text, link, className, disabled, type, onClick }) => {
+export const Button: FC<Props> = ({
+  variant,
+  text,
+  link,
+  className,
+  disabled,
+  type = 'button',
+  onClick
+}) => {
   switch (variant) {
     case 'base':
       return (
@@ -62,5 +70,5 @@ export type TButtonProps = {
   }
   className?: string
   disabled?: boolean
-  type: 'button' | 'submit' | 'reset'
+  type?: 'button' | 'submit' | 'reset'
 }

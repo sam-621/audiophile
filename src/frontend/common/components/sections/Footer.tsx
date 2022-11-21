@@ -1,5 +1,5 @@
-import Link from 'next/link'
 import { LogoLight } from '../atoms'
+import { NavItems } from '../items'
 
 export const Footer = () => {
   return (
@@ -10,40 +10,7 @@ export const Footer = () => {
           <div className="mb-12 xl:mb-0 flex justify-center md:block">
             <LogoLight />
           </div>
-          <nav className="flex flex-col gap-4 md:flex-row">
-            <Link href="/">
-              <a
-                className="text-white text-center font-bold text-xs hover:text-primary transition"
-                style={{ letterSpacing: 2 }}
-              >
-                HOME
-              </a>
-            </Link>
-            <Link href="/category/headphones">
-              <a
-                className="text-white text-center font-bold text-xs hover:text-primary transition"
-                style={{ letterSpacing: 2 }}
-              >
-                HEADPHONES
-              </a>
-            </Link>
-            <Link href="/category/speakers">
-              <a
-                className="text-white text-center font-bold text-xs hover:text-primary transition"
-                style={{ letterSpacing: 2 }}
-              >
-                SPEAKERS
-              </a>
-            </Link>
-            <Link href="/category/earphones">
-              <a
-                className="text-white text-center font-bold text-xs hover:text-primary transition"
-                style={{ letterSpacing: 2 }}
-              >
-                EARPHONES
-              </a>
-            </Link>
-          </nav>
+          <NavItems className="flex flex-col gap-4 md:flex-row md:gap-8" />
         </div>
       </div>
       <div className="flex flex-col gap-12 xl:w-1/2">
