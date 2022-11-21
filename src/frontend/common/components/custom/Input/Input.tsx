@@ -8,7 +8,10 @@ export const Input: FC<Props> = ({ type, label, error, placeholder, className, r
   return (
     <div className="flex flex-col gap-2">
       <div className="flex justify-between">
-        <label htmlFor="html" className={`text-black text-xs font-bold ${error && 'text-error'}`}>
+        <label
+          htmlFor="html"
+          className={`text-black text-xs font-bold ${error && 'text-error'} flex-grow`}
+        >
           {label}
         </label>
         {error && <span className="text-error text-xs">{error}</span>}

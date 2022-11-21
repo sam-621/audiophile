@@ -28,10 +28,17 @@ export const getErrorMessage = (config?: ErrorMessageConfig): Messages => {
       return Messages.GENERIC_ERROR
 
     case 'sign-up':
+      console.log('hi')
+      console.log(config?.axiosResponse)
+
       if (!config?.axiosResponse) return Messages.GENERIC_ERROR
       const message = config.axiosResponse.response?.data.message || ''
 
       if (message.includes('already exists')) return Messages.EMAIL_ALREADY_TAKEN
+      console.log({
+        err: statusCode
+      })
+
       if (statusCode === 400) return Messages.WRONG_DATA_SCHEMA
 
       return Messages.GENERIC_ERROR

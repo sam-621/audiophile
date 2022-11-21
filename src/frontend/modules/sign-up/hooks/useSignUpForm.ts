@@ -1,4 +1,5 @@
 import { joiResolver } from '@hookform/resolvers/joi'
+import axios from 'axios'
 import { getErrorMessage } from 'frontend/common/utils/errors'
 import Joi from 'joi'
 import { signIn } from 'next-auth/react'
@@ -13,15 +14,15 @@ const schema = Joi.object<IFormInputs>({
     .email({ minDomainSegments: 2, tlds: { allow: ['com', 'net'] } })
     .message('Must be a valid email'),
   password: Joi.string().min(6).message('Must be at least 6 characters long'),
-  firstName: Joi.string().required().message('First name is required'),
-  lastName: Joi.string().required().message('Last name is required'),
+  firstName: Joi.string().min(3).message('First name must be at least 3 characters long'),
+  lastName: Joi.string().min(3).message('Last name must be at least 3 characters long'),
   confirmPassword: Joi.string().min(6).message('Must be at least 6 characters long')
 })
 
 export const useSignUpForm = () => {
   const { push } = useRouter()
   const [globalError, setGlobalError] = useState('')
-  const { mutateAsync: signUp, error } = useSignUp()
+  const { mutateAsync: signUp } = useSignUp()
 
   const { register, handleSubmit, formState } = useForm<IFormInputs>({
     resolver: joiResolver(schema)
@@ -30,17 +31,34 @@ export const useSignUpForm = () => {
   const { errors, isSubmitting } = formState
 
   const onSubmit = async (data: IFormInputs) => {
+    setGlobalError('')
+
     if (data.confirmPassword !== data.password) {
       setGlobalError('Passwords must match')
       return
     }
 
     try {
-      await signUp(data)
-      await signIn('credentials', { ...data, redirect: false })
+      const newUser: SignUpDto = {
+        firstName: data.firstName,
+        lastName: data.lastName,
+        password: data.password,
+        email: data.email
+      }
+      await signUp(newUser)
+      await signIn('credentials', { ...newUser, redirect: false })
       await push('/')
     } catch (error) {
-      console.log(error)
+      if (!axios.isAxiosError(error)) {
+        setGlobalError(getErrorMessage())
+        return
+      }
+      const errorMessage = getErrorMessage({
+        axiosResponse: error,
+        module: 'sign-up',
+        statusCode: error.response?.status
+      })
+      setGlobalError(errorMessage)
     }
   }
 
@@ -48,9 +66,7 @@ export const useSignUpForm = () => {
     onSubmit: handleSubmit(onSubmit),
     register,
     errors,
-    globalError:
-      globalError ||
-      getErrorMessage({ axiosResponse: error, module: 'sign-up', statusCode: error?.status }),
+    globalError,
     isSubmitting
   }
 }
