@@ -7,7 +7,7 @@ export const Footer = () => {
       <div className="flex flex-col items-center gap-12 mb-12 md:items-start">
         <div className="w-[101px] h-[4px] bg-primary"></div>
         <div className="xl:flex xl:items-center xl:justify-between w-full">
-          <div className="mb-12 xl:mb-0">
+          <div className="mb-12 xl:mb-0 flex justify-center md:block">
             <LogoLight />
           </div>
           <nav className="flex flex-col gap-4 md:flex-row">
