@@ -24,13 +24,17 @@ export const SignInForm = () => {
         />
         <div className="flex justify-end">
           <Link href="/forgot-password">
-            <a href="/forgot-password" className="text-xs text-primary font-bold mt-2">
+            <a
+              href="/forgot-password"
+              className="text-xs text-primary font-bold mt-2"
+              style={{ letterSpacing: 1 }}
+            >
               FORGOT PASSWORD?
             </a>
           </Link>
         </div>
       </div>
-      <Button variant="base" text="Submit" disabled={isLoading} />
+      <Button variant="base" text="SIGN IN" disabled={isLoading} />
       <AuthFooter isSignInForm />
     </Form>
   )
