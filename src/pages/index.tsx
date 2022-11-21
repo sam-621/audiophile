@@ -3,8 +3,8 @@ import { GetStaticProps } from 'next'
 
 import { ProductsProvider } from '@/front-contexts'
 import { HomeView } from '@/front-modules'
-import { getAllProducts } from '@/front-services'
 import { IProduct } from '@/shared/interfaces/product'
+import { ProductRepository } from '@/api-repositories/products.repository'
 
 export const Home: FC<Props> = ({ products }) => {
   return (
@@ -15,7 +15,12 @@ export const Home: FC<Props> = ({ products }) => {
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-  const products = await getAllProducts()
+  const productRepository = new ProductRepository()
+
+  const products = (await productRepository.find<IProduct>()).map(product => ({
+    ...product,
+    _id: product._id.toString()
+  }))
 
   return {
     props: {
