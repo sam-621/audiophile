@@ -1,4 +1,4 @@
-import { Button, NavSection } from '@/front-components'
+import { Button } from '@/front-components'
 import { useProductsContext } from '@/front-contexts'
 
 const DEFAULT_NEW_PRODUCT = 'XX99 Mark II Headphones'
@@ -10,9 +10,8 @@ export const HomeHeader = () => {
   return (
     <>
       <header className="bg-[#121212] h-screen mb-10 md:mb-24 lg:mb-32 ">
-        <NavSection />
-        <div className="h-3/4 flex px-6 lg:px-28 xl:px-40 lg:py-0 items-center lg:justify-between overflow-hidden z-50">
-          <div className="z-50">
+        <div className="h-3/4 flex px-6 lg:px-28 xl:px-40 lg:py-0 items-center lg:justify-between overflow-hidden z-40">
+          <div className="z-40">
             <div className="flex justify-center lg:justify-start mb-4 gap-2">
               <span style={{ letterSpacing: 10 }} className="text-subtitle text-sm">
                 NEW
