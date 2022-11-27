@@ -21,7 +21,7 @@ export const Button: FC<Props> = ({
           text={text}
           link={link}
           onClick={onClick}
-          className={`py-4 px-7 text-xs font-bold ${className}`}
+          className={`py-4 px-7 text-xs font-semibold ${className}`}
           disabled={disabled}
         />
       )
@@ -32,7 +32,7 @@ export const Button: FC<Props> = ({
           text={text}
           link={link}
           onClick={onClick}
-          className={`py-4 px-7 text-xs font-bold ${className}`}
+          className={`py-4 px-7 text-xs font-semibold ${className}`}
         />
       )
     case 'text':
@@ -42,7 +42,7 @@ export const Button: FC<Props> = ({
           text={text}
           link={link}
           onClick={onClick}
-          className={`text-xs font-bold ${className}`}
+          className={`text-xs font-semibold ${className}`}
         />
       )
     default:
@@ -52,7 +52,7 @@ export const Button: FC<Props> = ({
           text={text}
           link={link}
           onClick={onClick}
-          className={`py-4 px-7 text-xs font-bold ${className}`}
+          className={`py-4 px-7 text-xs font-semibold ${className}`}
         />
       )
   }
