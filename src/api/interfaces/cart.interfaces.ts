@@ -1,8 +1,10 @@
 import { IProduct } from '@/shared/interfaces/product'
-import { TMongoId } from '@/shared/interfaces/utils'
+import { JWT } from 'next-auth/jwt'
 
 // Dto
 export type AddToCartDto = {
   products: IProduct[]
-  userId: TMongoId
 }
+
+// Inputs
+export type AddToCartInput = AddToCartDto & JWT

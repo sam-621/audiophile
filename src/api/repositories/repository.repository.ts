@@ -71,6 +71,10 @@ export class Repository {
    */
   async update<T = Document>(id: TMongoId, input: Document): Promise<ModifyResult<T>> {
     const collection = await this.getDbCollection()
-    return collection.findOneAndUpdate(id, input) as unknown as ModifyResult<T>
+    return collection.findOneAndUpdate(
+      { _id: new ObjectId(id) },
+      { $set: input },
+      { returnDocument: 'after' }
+    ) as unknown as ModifyResult<T>
   }
 }
