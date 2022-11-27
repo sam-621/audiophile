@@ -1,7 +1,7 @@
 import { HttpStatusCodes } from '@/api-constants/status-codes'
 import { ServiceResponse } from '@/api-interfaces/utils.interface'
 import { ProductRepository } from '@/api-repositories/products.repository'
-import { IProduct } from '@/shared/interfaces/product'
+import { IProduct, TCategory } from '@/shared/interfaces/product'
 import { TMongoId } from '@/shared/interfaces/utils'
 
 export class ProductService {
@@ -17,5 +17,12 @@ export class ProductService {
     const product = await productRepository.findOneById<IProduct>(id)
 
     return new ServiceResponse(product, 'OK', HttpStatusCodes.OK)
+  }
+
+  static async getProductsByCategory(category: TCategory): Promise<ServiceResponse<IProduct[]>> {
+    const productRepository = new ProductRepository()
+    const products = await productRepository.find<IProduct>({ category: category })
+
+    return new ServiceResponse(products, 'OK', HttpStatusCodes.OK)
   }
 }

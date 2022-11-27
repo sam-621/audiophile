@@ -46,9 +46,9 @@ export class Repository {
    * Method which returns all documents found in the collection given
    * @returns Array of documents
    */
-  async find<T = Document>(): Promise<T[]> {
+  async find<T = Document>(filter?: Filter<T>): Promise<T[]> {
     const collection = await this.getDbCollection()
-    const result = await collection.find().toArray()
+    const result = await collection.find(filter ?? {}).toArray()
 
     return result as unknown as T[]
   }
