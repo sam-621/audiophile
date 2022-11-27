@@ -1,6 +1,6 @@
 import { useToggle } from '@/front-hooks'
 import Image from 'next/image'
-import { Modal } from '../custom'
+import { Button, Modal } from '../custom'
 
 export const Cart = () => {
   const { state, toggle } = useToggle()
@@ -13,24 +13,86 @@ export const Cart = () => {
         </span>
       </button>
       <Modal isOpen={state} closeModal={toggle}>
-        <Modal.Title as="h3" className="text-lg font-medium leading-6 text-gray-900">
-          Payment successful
-        </Modal.Title>
-        <div className="mt-2">
-          <p className="text-sm text-gray-500">
-            Your payment has been successfully submitted. We’ve sent you an email with all of the
-            details of your order.
-          </p>
+        <div className="flex justify-between items-center mb-8">
+          <Modal.Title as="h3" className="text-lg font-medium leading-6 text-gray-900">
+            <span style={{ letterSpacing: 1 }}>CART</span> ({3})
+          </Modal.Title>
+          <button className="underline text-subtitle">Remove all</button>
         </div>
-
-        <div className="mt-4">
-          <button
-            type="button"
-            className="inline-flex justify-center rounded-md border border-transparent bg-blue-100 px-4 py-2 text-sm font-medium text-blue-900 hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
-            onClick={toggle}
-          >
-            Got it, thanks!
-          </button>
+        <div className="flex flex-col gap-6 max-h-[256px] overflow-scroll">
+          <article className="flex items-center justify-between">
+            <div className="flex gap-4 items-center">
+              <div>
+                <img
+                  src="/img/cart/image-xx99-mark-two-headphones.jpg"
+                  alt="Two headphones"
+                  width={64}
+                  height={64}
+                  className="rounded-lg"
+                />
+              </div>
+              <div>
+                <h4>XX99 MK II</h4>
+                <span className="text-subtitle">$ 2,999</span>
+              </div>
+            </div>
+            <div className="bg-cards flex gap-1">
+              <button className="px-5 py-2">+</button>
+              <span className="flex items-center">1</span>
+              <button className="px-5 py-2">-</button>
+            </div>
+          </article>
+          <article className="flex items-center justify-between">
+            <div className="flex gap-4 items-center">
+              <div>
+                <img
+                  src="/img/cart/image-xx99-mark-two-headphones.jpg"
+                  alt="Two headphones"
+                  width={64}
+                  height={64}
+                  className="rounded-lg"
+                />
+              </div>
+              <div>
+                <h4>XX99 MK II</h4>
+                <span className="text-subtitle">$ 2,999</span>
+              </div>
+            </div>
+            <div className="bg-cards flex gap-1">
+              <button className="px-5 py-2">+</button>
+              <span className="flex items-center">1</span>
+              <button className="px-5 py-2">-</button>
+            </div>
+          </article>
+          <article className="flex items-center justify-between">
+            <div className="flex gap-4 items-center">
+              <div>
+                <img
+                  src="/img/cart/image-xx99-mark-two-headphones.jpg"
+                  alt="Two headphones"
+                  width={64}
+                  height={64}
+                  className="rounded-lg"
+                />
+              </div>
+              <div>
+                <h4>XX99 MK II</h4>
+                <span className="text-subtitle">$ 2,999</span>
+              </div>
+            </div>
+            <div className="bg-cards flex gap-1">
+              <button className="px-5 py-2">+</button>
+              <span className="flex items-center">1</span>
+              <button className="px-5 py-2">-</button>
+            </div>
+          </article>
+        </div>
+        <div className="flex justify-between mb-6 mt-9">
+          <span className="text-subtitle">TOTAL</span>
+          <span>$5,396</span>
+        </div>
+        <div className="">
+          <Button variant="base" text="CHECKOUT" className="w-full" />
         </div>
       </Modal>
     </>
