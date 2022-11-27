@@ -14,7 +14,7 @@ export const NavSection = () => {
   return (
     <>
       <div className="sticky top-0 z-20">
-        <div className="bg-[#121212]  flex justify-between items-center px-6 py-8 lg:pt-8 lg:px-28 xl:px-40 z-40 border border-[#434343] border-t-0 border-x-0">
+        <div className="h-[var(--nav-height)] bg-[#121212] flex justify-between items-center px-6 py-8 lg:pt-8 lg:px-28 xl:px-40 z-40 border border-[#434343] border-t-0 border-x-0">
           <div className="lg:hidden">
             <button onClick={toggle}>
               <Image src="/icons/icon-hamburger.svg" alt="Menu" width={16} height={15} />

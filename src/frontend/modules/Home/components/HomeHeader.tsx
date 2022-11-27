@@ -9,7 +9,7 @@ export const HomeHeader = () => {
 
   return (
     <>
-      <header className="bg-[#121212] h-screen mb-10 md:mb-24 lg:mb-32 ">
+      <header className="bg-[#121212] menu-height mb-10 md:mb-24 lg:mb-32 ">
         <div className="h-3/4 flex px-6 lg:px-28 xl:px-40 lg:py-0 items-center lg:justify-between overflow-hidden z-10">
           <div className="z-10">
             <div className="flex justify-center lg:justify-start mb-4 gap-2">
