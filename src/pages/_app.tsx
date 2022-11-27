@@ -5,7 +5,6 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 
 import 'tailwindcss/tailwind.css'
 import '../frontend/styles/globals.css'
-import { NavSection } from '@/front-components'
 
 export const queryClient = new QueryClient()
 
@@ -16,7 +15,6 @@ const MyApp = ({
   return (
     <QueryClientProvider client={queryClient}>
       <SessionProvider session={session}>
-        <NavSection />
         <Component {...pageProps} />
       </SessionProvider>
     </QueryClientProvider>

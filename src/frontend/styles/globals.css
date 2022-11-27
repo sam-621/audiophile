@@ -3,3 +3,7 @@
 .shadow-card {
   box-shadow: 0 0 15px -3px rgb(0 0 0 / 0.1);
 }
+
+.menu-height {
+  height: calc(100vh - 96px);
+}

@@ -5,10 +5,12 @@ import { ProductsProvider } from '@/front-contexts'
 import { HomeView } from '@/front-modules'
 import { IProduct } from '@/shared/interfaces/product'
 import { ProductRepository } from '@/api-repositories/products.repository'
+import { NavSection } from '@/front-components'
 
 export const Home: FC<Props> = ({ products }) => {
   return (
     <ProductsProvider products={products}>
+      <NavSection />
       <HomeView />
     </ProductsProvider>
   )
