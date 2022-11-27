@@ -13,8 +13,8 @@ export const NavSection = () => {
 
   return (
     <>
-      <div className="sticky top-0 z-50">
-        <div className="bg-[#121212]  flex justify-between items-center px-6 py-8 lg:pt-8 lg:px-28 xl:px-40 z-50 border border-[#434343] border-t-0 border-x-0">
+      <div className="sticky top-0 z-20">
+        <div className="bg-[#121212]  flex justify-between items-center px-6 py-8 lg:pt-8 lg:px-28 xl:px-40 z-40 border border-[#434343] border-t-0 border-x-0">
           <div className="lg:hidden">
             <button onClick={toggle}>
               <Image src="/icons/icon-hamburger.svg" alt="Menu" width={16} height={15} />
@@ -48,7 +48,7 @@ export const NavSection = () => {
         leaveFrom="opacity-100 scale-100"
         leaveTo="opacity-0 scale-95"
         show={state}
-        className="fixed bg-white left-0 w-full overflow-scroll menu-height z-50"
+        className="fixed bg-white left-0 w-full overflow-scroll menu-height z-40"
       >
         <div className="mx-6 mb-10">
           <Categories />
