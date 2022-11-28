@@ -25,8 +25,8 @@ export const Cart = () => {
             Remove all
           </button>
         </div>
-        <div className="flex flex-col gap-6 max-h-[264px] overflow-scroll">
-          <article className="flex items-center justify-between">
+        <div className="flex flex-col gap-[var(--cart-items-gap)] max-cart-items-show overflow-scroll">
+          <article className="flex items-center justify-between h-[var(--cart-item-height)]">
             <div className="flex gap-4 items-center">
               <div>
                 <Image
@@ -52,7 +52,7 @@ export const Cart = () => {
               </button>
             </div>
           </article>
-          <article className="flex items-center justify-between">
+          <article className="flex items-center justify-between h-[var(--cart-item-height)]">
             <div className="flex gap-4 items-center">
               <div>
                 <Image
@@ -78,7 +78,7 @@ export const Cart = () => {
               </button>
             </div>
           </article>
-          <article className="flex items-center justify-between">
+          <article className="flex items-center justify-between h-[var(--cart-item-height)]">
             <div className="flex gap-4 items-center">
               <div>
                 <Image
@@ -104,7 +104,7 @@ export const Cart = () => {
               </button>
             </div>
           </article>
-          <article className="flex items-center justify-between">
+          <article className="flex items-center justify-between h-[var(--cart-item-height)]">
             <div className="flex gap-4 items-center">
               <div>
                 <Image

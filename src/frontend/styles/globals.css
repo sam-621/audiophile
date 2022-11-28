@@ -1,7 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&display=swap');
 
 :root {
-  --nav-height: 96px
+  --nav-height: 96px;
+  --cart-item-height: 70px;
+  --cart-items-gap: 1.5rem;
+  --cart-items-show: 3
 }
 
 .shadow-card {
@@ -10,4 +13,9 @@
 
 .menu-height {
   height: calc(100vh - var(--nav-height));
+}
+
+.max-cart-items-show {
+  /* max-height: calc((var(--cart-item-height) + var(--cart-items-gap)) * var(--cart-items-show)); */
+  max-height: calc((var(--cart-item-height) * var(--cart-items-show)) + (var(--cart-items-gap) * (var(--cart-items-show) - 1)));
 }
