@@ -2,7 +2,6 @@ import { createContext, FC, PropsWithChildren, useContext, useMemo } from 'react
 
 import { IProduct } from '@/shared/interfaces/product'
 
-import { useAllProducts } from '../hooks/petitions'
 import { ProductsContextSchema } from '../interfaces/contexts'
 import { getNewProducts } from '../utils/products'
 
@@ -12,15 +11,14 @@ export const ProductsContext = createContext<ProductsContextSchema>({
 })
 
 export const ProductsProvider: FC<PropsWithChildren<Props>> = ({ products, children }) => {
-  const { data } = useAllProducts({ initialData: products })
-  const newProducts = getNewProducts(data || [])
+  const newProducts = getNewProducts(products ?? [])
 
   const contextValue = useMemo(
     () => ({
-      products: data || [],
+      products: products ?? [],
       newProducts
     }),
-    [data]
+    [products]
   )
 
   return <ProductsContext.Provider value={contextValue}>{children}</ProductsContext.Provider>

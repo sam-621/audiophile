@@ -25,7 +25,33 @@ export const Cart = () => {
             Remove all
           </button>
         </div>
-        <div className="flex flex-col gap-6 max-h-[256px] overflow-scroll">
+        <div className="flex flex-col gap-6 max-h-[264px] overflow-scroll">
+          <article className="flex items-center justify-between">
+            <div className="flex gap-4 items-center">
+              <div>
+                <Image
+                  src="/img/cart/image-xx99-mark-two-headphones.jpg"
+                  alt="Two headphones"
+                  width={64}
+                  height={64}
+                  className="rounded-lg"
+                />
+              </div>
+              <div>
+                <h4 className="text-base font-semibold">XX99 MK II</h4>
+                <span className="text-subtitle text-sm font-semibold">$ 2,999</span>
+              </div>
+            </div>
+            <div className="bg-cards flex gap-1">
+              <button className="px-5 py-2 text-subtitle hover:text-primary transition-all">
+                +
+              </button>
+              <span className="flex items-center font-semibold">1</span>
+              <button className="px-5 py-2 text-subtitle hover:text-primary transition-all">
+                -
+              </button>
+            </div>
+          </article>
           <article className="flex items-center justify-between">
             <div className="flex gap-4 items-center">
               <div>
