@@ -4,7 +4,7 @@
   --nav-height: 96px;
   --cart-item-height: 70px;
   --cart-items-gap: 1.5rem;
-  --cart-items-show: 3
+  --cart-items-show: 3;
 }
 
 .shadow-card {
@@ -17,5 +17,8 @@
 
 .max-cart-items-show {
   /* max-height: calc((var(--cart-item-height) + var(--cart-items-gap)) * var(--cart-items-show)); */
-  max-height: calc((var(--cart-item-height) * var(--cart-items-show)) + (var(--cart-items-gap) * (var(--cart-items-show) - 1)));
+  max-height: calc(
+    (var(--cart-item-height) * var(--cart-items-show)) +
+      (var(--cart-items-gap) * (var(--cart-items-show) - 1))
+  );
 }
