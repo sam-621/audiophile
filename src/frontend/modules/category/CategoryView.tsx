@@ -1,5 +1,6 @@
 import { useProductsContext } from '@/front-contexts'
 import { FC } from 'react'
+import { CategoryTitle } from './components/CategoryTitle'
 
 export const CategoryView: FC<Props> = ({ title }) => {
   const { products } = useProductsContext()
@@ -8,7 +9,11 @@ export const CategoryView: FC<Props> = ({ title }) => {
     products
   })
 
-  return <h1>Category</h1>
+  return (
+    <>
+      <CategoryTitle category={title} />
+    </>
+  )
 }
 
 type Props = {
