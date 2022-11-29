@@ -1,4 +1,4 @@
-import { TCategory } from '@/shared/interfaces/product'
+import { ProductCategory } from '@/shared/interfaces/product'
 import { TMongoId } from '@/shared/interfaces/utils'
 
 // Dto
@@ -7,5 +7,5 @@ export type ProductByIdParam = {
 }
 
 export type ProductsByCategory = {
-  category: TCategory
+  category: ProductCategory
 }

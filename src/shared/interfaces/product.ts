@@ -5,7 +5,7 @@ export interface IProduct {
   slug: string
   name: string
   image: TImage
-  category: TCategory
+  category: ProductCategory
   categoryImage: TImage
   new: boolean
   price: number
@@ -16,7 +16,11 @@ export interface IProduct {
   others: TOthers[]
 }
 
-export type TCategory = 'earphones' | 'headphones' | 'speakers'
+export enum ProductCategory {
+  EARPHONES = 'earphones',
+  HEADPHONES = 'headphones',
+  SPEAKERS = 'speakers'
+}
 
 export type TImage = {
   mobile: string

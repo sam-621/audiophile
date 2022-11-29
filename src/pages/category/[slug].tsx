@@ -2,7 +2,7 @@ import { ProductService } from '@/api-services/products.service'
 import { NavSection } from '@/front-components'
 import { ProductsProvider } from '@/front-contexts'
 import { PathPages } from '@/front-interfaces'
-import { IProduct, TCategory } from '@/shared/interfaces/product'
+import { IProduct, ProductCategory } from '@/shared/interfaces/product'
 import { CategoryView } from 'frontend/modules/category'
 import { GetStaticPaths, GetStaticProps, NextPage } from 'next'
 import { ParsedUrlQuery } from 'querystring'
@@ -17,7 +17,11 @@ const CategoryPage: NextPage<Props> = ({ products, title }) => {
 }
 
 export const getStaticPaths: GetStaticPaths = () => {
-  const categories: TCategory[] = ['earphones', 'headphones', 'speakers']
+  const categories: ProductCategory[] = [
+    ProductCategory.EARPHONES,
+    ProductCategory.HEADPHONES,
+    ProductCategory.SPEAKERS
+  ]
   const paths: PathPages = categories.map(category => ({
     params: {
       slug: category
@@ -46,12 +50,12 @@ export const getStaticProps: GetStaticProps<Props> = async context => {
 }
 
 type Params = ParsedUrlQuery & {
-  slug: TCategory
+  slug: ProductCategory
 }
 
 type Props = {
   products: IProduct[]
-  title: TCategory
+  title: ProductCategory
 }
 
 export default CategoryPage
