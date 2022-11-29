@@ -8,7 +8,7 @@ import { Cart } from '../items/Cart'
 import { Categories } from './Categories'
 
 export const NavSection = () => {
-  const { isAuth, logOut, isLoginOut } = useAuth()
+  const { isAuth, logOut, isLoginOut, isLoading } = useAuth()
   const { toggle, state } = useToggle()
 
   return (
@@ -26,7 +26,7 @@ export const NavSection = () => {
           </div>
           <NavItems className="hidden lg:flex flex-col gap-8 md:flex-row" />
           <div className="flex items-center gap-10 xl:gap-16">
-            {!isAuth && (
+            {!isAuth && !isLoading && (
               <div className="hidden lg:block">
                 <Button
                   variant="base"
