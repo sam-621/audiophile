@@ -2,6 +2,7 @@ import { ProductService } from '@/api-services/products.service'
 import { NavSection } from '@/front-components'
 import { ProductsProvider } from '@/front-contexts'
 import { PathPages } from '@/front-interfaces'
+import { getProductCategoryName } from '@/front-utils'
 import { IProduct, ProductCategory } from '@/shared/interfaces/product'
 import { CategoryView } from 'frontend/modules/category'
 import { GetStaticPaths, GetStaticProps, NextPage } from 'next'
@@ -44,7 +45,7 @@ export const getStaticProps: GetStaticProps<Props> = async context => {
   return {
     props: {
       products: productsByCategory,
-      title: slug
+      title: getProductCategoryName(slug)
     }
   }
 }
@@ -55,7 +56,7 @@ type Params = ParsedUrlQuery & {
 
 type Props = {
   products: IProduct[]
-  title: ProductCategory
+  title: string
 }
 
 export default CategoryPage

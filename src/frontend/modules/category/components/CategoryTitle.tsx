@@ -1,6 +1,6 @@
 import { FC } from 'react'
 
-export const CategoryTitle: FC<Props> = ({ category }) => {
+export const CategoryHeader: FC<Props> = ({ category }) => {
   return (
     <header className="bg-[#121212] py-8">
       <h1 className="text-white text-xl text-center font-semibold" style={{ letterSpacing: 2 }}>

@@ -1,17 +1,22 @@
+import { About, Categories } from '@/front-components'
 import { useProductsContext } from '@/front-contexts'
 import { FC } from 'react'
-import { CategoryTitle } from './components/CategoryTitle'
+import { CategoryProduct } from './components/CategoryProduct'
+import { CategoryHeader } from './components/CategoryTitle'
 
 export const CategoryView: FC<Props> = ({ title }) => {
   const { products } = useProductsContext()
-  console.log({
-    title,
-    products
-  })
 
   return (
     <>
-      <CategoryTitle category={title} />
+      <CategoryHeader category={title} />
+      <main className="mx-6 my-16 flex flex-col gap-32 xl:mx-40">
+        {products.map((product, i) => (
+          <CategoryProduct key={product._id as string} product={product} index={i} />
+        ))}
+        <Categories />
+        <About />
+      </main>
     </>
   )
 }
