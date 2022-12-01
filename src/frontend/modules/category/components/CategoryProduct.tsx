@@ -6,7 +6,9 @@ export const CategoryProduct: FC<Props> = ({ product, index }) => {
   const isEven = (index ?? 0) % 2 === 0
   return (
     <article
-      className={`flex flex-col gap-8 items-center lg:${isEven ? 'flex-row' : 'flex-row-reverse'}`}
+      className={`flex flex-col gap-8 items-center ${
+        isEven ? 'lg:flex-row' : 'lg:flex-row-reverse'
+      }`}
     >
       <div className="flex justify-center">
         <img
