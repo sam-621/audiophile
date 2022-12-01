@@ -1,15 +1,21 @@
 import { useAuth, useToggle } from '@/front-hooks'
 import { Transition } from '@headlessui/react'
 import Image from 'next/image'
+import { useRouter } from 'next/router'
 import { LogoLight } from '../atoms/Logo'
 import { Button } from '../custom'
 import { NavItems } from '../items'
 import { Cart } from '../items/Cart'
 import { Categories } from './Categories'
 
+const routesNotToShow = ['/sign-up', '/sign-in']
+
 export const NavSection = () => {
+  const { pathname } = useRouter()
   const { isAuth, logOut, isLoginOut, isLoading } = useAuth()
   const { toggle, state } = useToggle()
+
+  if (routesNotToShow.includes(pathname)) return null
 
   return (
     <>

@@ -1,7 +1,14 @@
+import { useRouter } from 'next/router'
 import { LogoLight } from '../atoms'
 import { NavItems } from '../items'
 
+const routesNotToShow = ['/sign-up', '/sign-in']
+
 export const Footer = () => {
+  const { pathname } = useRouter()
+
+  if (routesNotToShow.includes(pathname)) return null
+
   return (
     <footer className="bg-secondary px-6 pb-9 md:px-10 md:pb-14 md:pt-0 xl:px-40 xl:pb-20 xl:pt-0">
       <div className="flex flex-col items-center gap-12 mb-12 md:items-start">
