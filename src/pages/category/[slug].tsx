@@ -11,7 +11,6 @@ import { ParsedUrlQuery } from 'querystring'
 const CategoryPage: NextPage<Props> = ({ products, title }) => {
   return (
     <ProductsProvider products={products}>
-      <NavSection />
       <CategoryView title={title} />
     </ProductsProvider>
   )

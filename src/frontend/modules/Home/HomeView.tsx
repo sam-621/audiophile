@@ -1,4 +1,4 @@
-import { About, Categories, Footer, MainLayout } from '@/front-components'
+import { About, Categories, MainLayout } from '@/front-components'
 
 import { HomeHeader } from './components/HomeHeader'
 
@@ -10,7 +10,6 @@ export const HomeView = () => {
         <Categories />
         <About />
       </MainLayout>
-      <Footer />
     </>
   )
 }
